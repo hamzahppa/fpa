@@ -41,6 +41,7 @@ class ProjectController extends Controller
 			$model->attributes=$_POST['FpaFpa'];
 			if ($model->save()) {
 				$this->setProject($model->id_fpa);
+				$this->redirect(Yii::app()->createUrl('fpa/tdi'));
 			}
 		}
 
