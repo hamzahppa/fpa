@@ -20,7 +20,15 @@
 				<input class="mdl-textfield__input" type="text" id="nama" name="FpaFp[bahasa]">
 				<label class="mdl-textfield__label" for="nama">Programming</label>
 			</div>
-			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+				<input class="mdl-textfield__input" type="number" id="DET" name="FpaFp[DET]">
+				<label class="mdl-textfield__label" for="DET">Column</label>
+			</div>
+			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+				<input class="mdl-textfield__input" type="number" id="RET" name="FpaFp[RET]">
+				<label class="mdl-textfield__label" for="RET">Relation</label>
+			</div>
+<!-- 			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 				<div class="mdl-card__title">
 					<h4 class="mdl-card__title-text">Data Element Type (DET)</h4>
 				</div>
@@ -34,9 +42,9 @@
 				<div class="mdl-card__actions mdl-card--border">
 					<input type="button" value="Add Field" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addDET" onClick="addInput('DET');">
 				</div>
-			</div>
+			</div> -->
 
-			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+<!-- 			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 				<div class="mdl-card__title">
 					<h4 class="mdl-card__title-text">Record Element Type (RET)</h4>
 				</div>
@@ -50,7 +58,7 @@
 				<div class="mdl-card__actions mdl-card--border">
 					<input type="button" value="Add Field" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" id="addRET" onClick="addInput('RET');">
 				</div>
-			</div>
+			</div> -->
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
 		<button type="" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Save Table</button>

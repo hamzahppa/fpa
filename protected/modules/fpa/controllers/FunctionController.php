@@ -42,36 +42,36 @@ class FunctionController extends Controller
 		{
 			$modelFp->attributes=$_POST['FpaFp'];
 			$modelFp->id_fpa = $id_fpa;
-			$modelFp->DET = 0;
+			// $modelFp->DET = 0;
 			if ($modelFp->save()) {
-				if (isset($_POST['DET'])) {
-					foreach ($_POST['DET'] as $DET) {
-						$modelDF = new FpaDatafunction;
-						$modelDF->DET = $DET;
-						$modelDF->id_fp = $modelFp->id_fp;
-						if ($modelDF->save()) {
-							$modelFp->DET = $modelFp->DET+1;
-							$modelFp->save();
-						}else{
-							throw new CHttpException("Can not save value", 311);
+				// if (isset($_POST['DET'])) {
+				// 	foreach ($_POST['DET'] as $DET) {
+				// 		$modelDF = new FpaDatafunction;
+				// 		$modelDF->DET = $DET;
+				// 		$modelDF->id_fp = $modelFp->id_fp;
+				// 		if ($modelDF->save()) {
+				// 			$modelFp->DET = $modelFp->DET+1;
+				// 			$modelFp->save();
+				// 		}else{
+				// 			throw new CHttpException("Can not save value", 311);
 							
-						}
-					}
-				}
-				if (isset($_POST['FTR'])) {
-					foreach ($_POST['FTR'] as $FTR) {
-						$modelDF = new FpaDatafunction;
-						$modelDF->FTR = $FTR;
-						$modelDF->id_fp = $modelFp->id_fp;
-						if ($modelDF->save()) {
-							$modelFp->FTR = $modelFp->FTR+1;
-							$modelFp->save();
-						}else{
-							throw new CHttpException("Can not save value", 321);
+				// 		}
+				// 	}
+				// }
+				// if (isset($_POST['FTR'])) {
+				// 	foreach ($_POST['FTR'] as $FTR) {
+				// 		$modelDF = new FpaDatafunction;
+				// 		$modelDF->FTR = $FTR;
+				// 		$modelDF->id_fp = $modelFp->id_fp;
+				// 		if ($modelDF->save()) {
+				// 			$modelFp->FTR = $modelFp->FTR+1;
+				// 			$modelFp->save();
+				// 		}else{
+				// 			throw new CHttpException("Can not save value", 321);
 							
-						}
-					}
-				}
+				// 		}
+				// 	}
+				// }
 				$this->redirect('index');
 			}else{
 				throw new CHttpException("Can not save function", 310);
@@ -98,36 +98,36 @@ class FunctionController extends Controller
 			$modelFp->attributes=$_POST['FpaFp'];
 			$modelFp->id_fpa = $id_fpa;
 			$modelFp->tipe = 'ILF';
-			$modelFp->DET = 0;
+			// $modelFp->DET = 0;
 			if ($modelFp->save()) {
-				if (isset($_POST['DET'])) {
-					foreach ($_POST['DET'] as $DET) {
-						$modelDF = new FpaDatafunction;
-						$modelDF->DET = $DET;
-						$modelDF->id_fp = $modelFp->id_fp;
-						if ($modelDF->save()) {
-							$modelFp->DET = $modelFp->DET+1;
-							$modelFp->save();
-						}else{
-							throw new CHttpException("Can not save value", 321);
+				// if (isset($_POST['DET'])) {
+				// 	foreach ($_POST['DET'] as $DET) {
+				// 		$modelDF = new FpaDatafunction;
+				// 		$modelDF->DET = $DET;
+				// 		$modelDF->id_fp = $modelFp->id_fp;
+				// 		if ($modelDF->save()) {
+				// 			$modelFp->DET = $modelFp->DET+1;
+				// 			$modelFp->save();
+				// 		}else{
+				// 			throw new CHttpException("Can not save value", 321);
 							
-						}
-					}
-				}
-				if (isset($_POST['RET'])) {
-					foreach ($_POST['RET'] as $RET) {
-						$modelDF = new FpaDatafunction;
-						$modelDF->RET = $RET;
-						$modelDF->id_fp = $modelFp->id_fp;
-						if ($modelDF->save()) {
-							$modelFp->RET = $modelFp->RET+1;
-							$modelFp->save();
-						}else{
-							throw new CHttpException("Can not save value", 321);
+				// 		}
+				// 	}
+				// }
+				// if (isset($_POST['RET'])) {
+				// 	foreach ($_POST['RET'] as $RET) {
+				// 		$modelDF = new FpaDatafunction;
+				// 		$modelDF->RET = $RET;
+				// 		$modelDF->id_fp = $modelFp->id_fp;
+				// 		if ($modelDF->save()) {
+				// 			$modelFp->RET = $modelFp->RET+1;
+				// 			$modelFp->save();
+				// 		}else{
+				// 			throw new CHttpException("Can not save value", 321);
 							
-						}
-					}
-				}
+				// 		}
+				// 	}
+				// }
 				$this->redirect('index');
 			}else{
 				throw new CHttpException("Can not save function", 320);
