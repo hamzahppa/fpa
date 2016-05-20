@@ -11,7 +11,13 @@
 	    		<span class="mdl-list__item-primary-content">
 	    			<a href="<?php echo Yii::app()->createUrl('fpa/project/detail/', array('id'=>$modelFPA[$i]->id_fpa)) ?>"><i class="material-icons mdl-list__item-avatar" style="border-radius: 10%;">folder</i></a>
 	    			<span><?php echo $modelFPA[$i]->nama_fpa; ?></span>
-	    			<span class="mdl-list__item-sub-title"><?php echo $modelFPA[$i]->fp; ?> FP</span>
+	    			<span class="mdl-list__item-sub-title">
+	    				<?php if ($modelFPA[$i]->fp == 0 || $modelFPA[$i] == null): ?>
+	    					unfinished
+	    				<?php else: ?>
+			    			<?php echo $modelFPA[$i]->fp; ?> FP
+	    				<?php endif ?>
+	    			</span>
 	    		</span>
 	    	</li>
 	    <?php endfor; ?>
