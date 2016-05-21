@@ -8,7 +8,7 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'Function Point Analysis',
-	'defaultController'=>'fpa/project',
+	'defaultController'=>'login/index',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -37,6 +37,7 @@ return array(
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,
+			'class'=>'WebUser',
 		),
 		// uncomment the following to enable URLs in path-format
 		

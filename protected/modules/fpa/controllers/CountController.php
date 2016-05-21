@@ -4,6 +4,26 @@ class CountController extends Controller
 {
 	public $layout = 'main';
 
+	public function accessRules()
+	{
+		$user = Yii::app()->user->no_user;
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index'),
+				'expression'=>"$user !== null",
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+				'deniedCallback'=>array($this, 'deny'),
+			),
+		);
+	}
+
+	public function deny()
+	{
+		$this->redirect(Yii::app()->homeUrl);
+	}
+
 	public function actionIndex()
 	{
 		$id_fpa = $this->workOnProject();

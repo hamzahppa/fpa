@@ -12,8 +12,29 @@ class ProjectController extends Controller
 		);
 	}
 
+	public function accessRules()
+	{
+		$user = Yii::app()->user->no_user;
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','tambah','detail','edit','select', 'done'),
+				'expression'=>"$user !== null",
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+				'deniedCallback'=>array($this, 'deny'),
+			),
+		);
+	}
+
+	public function deny()
+	{
+		$this->redirect(Yii::app()->homeUrl);
+	}
+
 	public function actionIndex()
 	{
+		$user = Yii::app()->user->no_user;
 		if ($this->workOnProject()) {
 			$id_fpa = $this->workOnProject();
 
@@ -23,7 +44,7 @@ class ProjectController extends Controller
 			));
 		}
 
-		$modelFPA = FpaFpa::model()->findAll();
+		$modelFPA = FpaFpa::model()->findAllByAttributes(array('no_user'=>$user));
 		 
 		$this->render('index', array(
 			'modelFPA'=>$modelFPA,
@@ -32,6 +53,7 @@ class ProjectController extends Controller
 
 	public function actionTambah()
 	{
+		$user = Yii::app()->user->no_user;
 		$model = new FpaFpa;
 
 		$this->performAjaxValidation($model);
@@ -39,6 +61,7 @@ class ProjectController extends Controller
 		if (isset($_POST['FpaFpa'])) 
 		{
 			$model->attributes=$_POST['FpaFpa'];
+			$model->no_user=$user;
 			if ($model->save()) {
 				$this->setProject($model->id_fpa);
 				$this->redirect(Yii::app()->createUrl('fpa/tdi'));

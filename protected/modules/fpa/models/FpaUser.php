@@ -4,8 +4,12 @@
  * This is the model class for table "fpa_user".
  *
  * The followings are the available columns in table 'fpa_user':
- * @property integer $id_user
- * @property string $nama
+ * @property string $username
+ * @property string $password
+ * @property integer $no_user
+ *
+ * The followings are the available model relations:
+ * @property FpaFpa[] $fpaFpas
  */
 class FpaUser extends CActiveRecord
 {
@@ -25,12 +29,12 @@ class FpaUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id_user, nama', 'required'),
-			array('id_user', 'numerical', 'integerOnly'=>true),
-			array('nama', 'length', 'max'=>255),
+			array('username, password, no_user', 'required'),
+			array('no_user', 'numerical', 'integerOnly'=>true),
+			array('username, password', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_user, nama', 'safe', 'on'=>'search'),
+			array('username, password, no_user', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -42,6 +46,7 @@ class FpaUser extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'fpaFpas' => array(self::HAS_MANY, 'FpaFpa', 'no_user'),
 		);
 	}
 
@@ -51,8 +56,9 @@ class FpaUser extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_user' => 'Id User',
-			'nama' => 'Nama',
+			'username' => 'Username',
+			'password' => 'Password',
+			'no_user' => 'No User',
 		);
 	}
 
@@ -74,8 +80,9 @@ class FpaUser extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_user',$this->id_user);
-		$criteria->compare('nama',$this->nama,true);
+		$criteria->compare('username',$this->username,true);
+		$criteria->compare('password',$this->password,true);
+		$criteria->compare('no_user',$this->no_user);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

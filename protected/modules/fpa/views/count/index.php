@@ -41,7 +41,7 @@
 	</div>
 </div>
 
-<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid">
+<!-- <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--6-col mdl-grid">
 	<div class="mdl-card__title">
 		<h2 class="mdl-card__title-text">LOC</h2>
 	</div>
@@ -60,4 +60,4 @@
 	    	</li>
 	    </ul>
 	</div>
-</div>
+</div> -->

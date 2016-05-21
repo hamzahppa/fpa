@@ -12,6 +12,26 @@ class TdiController extends Controller
 		);
 	}
 
+	public function accessRules()
+	{
+		$user = Yii::app()->user->no_user;
+		return array(
+			array('allow',  // allow all users to perform 'index' and 'view' actions
+				'actions'=>array('index','addTdi','overview'),
+				'expression'=>"$user !== null",
+			),
+			array('deny',  // deny all users
+				'users'=>array('*'),
+				'deniedCallback'=>array($this, 'deny'),
+			),
+		);
+	}
+
+	public function deny()
+	{
+		$this->redirect(Yii::app()->homeUrl);
+	}
+
 	public function actionIndex()
 	{
 		$id_fpa = $this->workOnProject();
@@ -28,12 +48,13 @@ class TdiController extends Controller
 			}
 			// if its finished yet
 			$this->redirect(array(
-				'addTdi',
-				'id_gsc'=>1,
+				// 'addTdi',
+				// 'id_gsc'=>1,
+				'overview'
 			));
 		}
 
-		// if its a new input
+		// if its a new
 		$this->redirect(array(
 			'addTdi',
 			'id_gsc'=>1,
@@ -92,7 +113,7 @@ class TdiController extends Controller
 			}
 			$this->redirect(Yii::app()->createUrl('fpa/function'));
 		}
-		throw new VHttpException("Can not save value", 200);
+		throw new CHttpException("Can not save value", 200);
 	}
 
 	// calon function
@@ -101,7 +122,7 @@ class TdiController extends Controller
 		$id_fpa = $this->workOnProject();
 		$modelTdi = FpaTdi::model()->findAllByAttributes(array('id_fpa'=>$id_fpa));
 
-		if (is_null($modelTdi)) {
+		if ($modelTdi == null) {
 			throw new CHttpException(404, "Error, the requested page does not exist.");
 		}
 
@@ -118,6 +139,18 @@ class TdiController extends Controller
 			$this->redirect(Yii::app()->createUrl('fpa/project'));
 		}
 		return Yii::app()->session['workonproject'];
+	}
+
+	public function getGscPoint($id_gsc, $value)
+	{
+		$GscPoint = FpaGscpoint::model()->findByAttributes(array(
+			'id_gsc'=>$id_gsc,
+			'value'=>$value
+		));
+		if (is_null($GscPoint)) {
+			return null;
+		}
+		return $GscPoint;
 	}
 
 	public function loadModel($id)

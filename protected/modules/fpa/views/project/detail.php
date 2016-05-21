@@ -37,25 +37,30 @@
 		</div>
 		<div class="mdl-card__supporting-text">
 			<ul class="fpa-list-three mdl-list">
-			<?php $i=0;foreach ($model->fpaTdis as $Tdis): ?>
-			  <li class="fpa-list mdl-list__item mdl-list__item--three-line">
-			    <span class="mdl-list__item-primary-content">
-			      <i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i>
-			      <span><?php echo $Tdis->idGsc->gsc ?></span>
-			      <span class="mdl-list__item-text-body">
-			      	<?php 
-			      		$i++;
-			      		$modelGscPoint = $this->getGscPoint($Tdis->id_gsc, $Tdis->value);
-			      		if ($modelGscPoint === null) {
-			      			echo "Not Set";
-			      		}else {
-			      			echo $modelGscPoint->point;
-			      		}
-			      	?>
-			      </span>
-			    </span>
-			  </li>
-			<?php endforeach; ?>
+			<?php if ($model->fpaTdis == null): ?>
+				No GSC's found, you can input by clicking <b>Input TDI</b> in left menu or click button <b>Continue Input</b> below
+				<?php $i = 0; ?>
+			<?php else: ?>
+				<?php $i=0;foreach ($model->fpaTdis as $Tdis): ?>
+				  <li class="fpa-list mdl-list__item mdl-list__item--three-line">
+				    <span class="mdl-list__item-primary-content">
+				      <i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i>
+				      <span><?php echo $Tdis->idGsc->gsc ?></span>
+				      <span class="mdl-list__item-text-body">
+				      	<?php 
+				      		$i++;
+				      		$modelGscPoint = $this->getGscPoint($Tdis->id_gsc, $Tdis->value);
+				      		if ($modelGscPoint === null) {
+				      			echo "Not Set";
+				      		}else {
+				      			echo $modelGscPoint->point;
+				      		}
+				      	?>
+				      </span>
+				    </span>
+				  </li>
+				<?php endforeach; ?>
+			<?php endif ?>
 			</ul>
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
@@ -76,6 +81,9 @@
 			<h2 class="mdl-card__title-text">Function(s)</h2>
 		</div>
 		<div class="fpa-supporting-text mdl-card__supporting-text">
+		<?php if ($modelFunction == null): ?>
+			No Function(s) found. You can add function in <b>Add Function</b> menu.
+		<?php else: ?>
 		    <div class="table-responsive-vertical shadow-z-1">
 		      <!-- Table starts here -->
 		      <table id="table" class="table table-hover table-bordered">
@@ -103,6 +111,7 @@
 		        </tbody>
 		      </table>
 		    </div>
+		<?php endif ?>
 		</div>
 	</div>
 	<!-- Project Table -->
@@ -111,6 +120,9 @@
 			<h2 class="mdl-card__title-text">Table(s)</h2>
 		</div>
 		<div class="fpa-supporting-text mdl-card__supporting-text">
+		<?php if ($modelTable == null): ?>
+			No Table(s) found. You can add table in <b>Add Function</b> menu.
+		<?php else: ?>
 		    <div class="table-responsive-vertical shadow-z-1">
 		      <!-- Table starts here -->
 		      <table id="table" class="table table-hover table-bordered">
@@ -138,15 +150,13 @@
 		        </tbody>
 		      </table>
 		    </div>
+		<?php endif ?>
 		</div>
 	</div>
 	<!-- Action -->
 	<div class="mdl-card__actions mdl-card--border">
 		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/done'); ?>">
 			Done
-		</a>
-		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/select', array('id'=>$model->id_fpa)); ?>">
-			Work On
 		</a>
 	</div>
 </div>
