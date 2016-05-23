@@ -17,15 +17,19 @@
 				<label class="mdl-textfield__label" for="nama">Table Name</label>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				<input class="mdl-textfield__input" type="text" id="nama" name="FpaFp[bahasa]">
-				<label class="mdl-textfield__label" for="nama">Programming</label>
+				<select class="mdl-textfield__input" id="tipe" name="FpaFp[tipe]">
+					<option value=""></option>
+					<option value="ILF">Internal Logical Files</option>
+					<option value="EIF">External Interface File</option>
+				</select>
+				<label class="mdl-textfield__label" for="tipe">Table Type</label>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				<input class="mdl-textfield__input" type="number" id="DET" name="FpaFp[DET]">
+				<input class="mdl-textfield__input" type="number" id="DET" name="FpaFp[DET]" min="0">
 				<label class="mdl-textfield__label" for="DET">Column</label>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				<input class="mdl-textfield__input" type="number" id="RET" name="FpaFp[RET]">
+				<input class="mdl-textfield__input" type="number" id="RET" name="FpaFp[RET]" min="0">
 				<label class="mdl-textfield__label" for="RET">Relation</label>
 			</div>
 <!-- 			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">

@@ -15,10 +15,10 @@
 		    			<a href="<?php echo Yii::app()->createUrl('fpa/project/detail/', array('id'=>$modelFPA[$i]->id_fpa)) ?>"><i class="material-icons mdl-list__item-avatar" style="border-radius: 10%;">folder</i></a>
 		    			<span><?php echo $modelFPA[$i]->nama_fpa; ?></span>
 		    			<span class="mdl-list__item-sub-title">
-		    				<?php if ($modelFPA[$i]->fp == 0 || $modelFPA[$i] == null): ?>
+		    				<?php if ($modelFPA[$i]->loc == 0 || $modelFPA[$i]->loc == null): ?>
 		    					Unfinished
 		    				<?php else: ?>
-				    			<?php echo $modelFPA[$i]->fp; ?> FP
+				    			<?php echo $modelFPA[$i]->loc; ?> LOC
 		    				<?php endif ?>
 		    			</span>
 		    		</span>

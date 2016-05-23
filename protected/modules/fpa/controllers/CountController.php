@@ -41,204 +41,6 @@ class CountController extends Controller
 			$tipe = $modelFp[$i]->tipe;
 			$group = $this->getGroup($tipe, $modelFp[$i]);
 			$weight = $this->getWeight($tipe, $group);
-			// if ($tipe === "ILF") {
-			// 	$DET = $modelFp[$i]->DET;
-			// 	if ($DET >= 1 and $DET <=19) {
-			// 		$RET = $modelFp[$i]->RET;
-			// 		// echo "low";
-			// 		if ($RET == 1) {
-			// 			$weight = 7;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 7;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 10;
-			// 		} else{
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else if($DET >= 20 and $DET <=50){
-			// 		// echo "average";
-			// 		if ($RET == 1) {
-			// 			$weight = 7;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 10;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 15;
-			// 		} else{
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else if($DET >= 51){
-			// 		// echo "high";
-			// 		if ($RET == 1) {
-			// 			$weight = 10;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 15;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 15;
-			// 		} else {
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else {
-			// 		echo "invalid DET value";
-			// 	}
-			// } else if ($tipe === "EIF") {
-			// 	$DET = $modelFp[$i]->DET;
-			// 	if ($DET >= 1 and $DET <=19) {
-			// 		$RET = $modelFp[$i]->RET;
-			// 		// echo "low";
-			// 		if ($RET == 1) {
-			// 			$weight = 5;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 5;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 7;
-			// 		} else{
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else if($DET >= 20 and $DET <=50){
-			// 		// echo "average";
-			// 		if ($RET == 1) {
-			// 			$weight = 5;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 7;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 10;
-			// 		} else{
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else if($DET >= 51){
-			// 		// echo "high";
-			// 		if ($RET == 1) {
-			// 			$weight = 7;
-			// 		} else if ($RET >= 2 and $RET <= 5) {
-			// 			$weight = 10;
-			// 		} else if ($RET >= 6){
-			// 			$weight = 10;
-			// 		} else {
-			// 			echo "invalid RET value";
-			// 		}
-			// 	} else {
-			// 		echo "invalid DET value";
-			// 	}
-			// } else if ($tipe === "EI") {
-			// 	$DET = $modelFp[$i]->DET;
-			// 	if ($DET >= 1 and $DET <=4) {
-			// 		$FTR = $modelFp[$i]->FTR;
-			// 		// echo "low";
-			// 		if ($FTR == 1) {
-			// 			$weight = 3;
-			// 		} else if ($FTR == 2) {
-			// 			$weight = 3;
-			// 		} else if ($FTR >= 3){
-			// 			$weight = 4;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 5 and $DET <=15){
-			// 		// echo "average";
-			// 		if ($FTR == 1) {
-			// 			$weight = 3;
-			// 		} else if ($FTR == 2) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 3){
-			// 			$weight = 6;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 16){
-			// 		// echo "high";
-			// 		if ($FTR == 1) {
-			// 			$weight = 4;
-			// 		} else if ($FTR == 2) {
-			// 			$weight = 6;
-			// 		} else if ($FTR >= 3){
-			// 			$weight = 6;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else {
-			// 		echo "invalid DET value";
-			// 	}
-			// } else if ($tipe === "EO") {
-			// 	$DET = $modelFp[$i]->DET;
-			// 	if ($DET >= 1 and $DET <=5) {
-			// 		$FTR = $modelFp[$i]->FTR;
-			// 		// echo "low";
-			// 		if ($FTR == 1) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 5;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 6 and $DET <=20){
-			// 		// echo "average";
-			// 		if ($FTR == 1) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 5;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 7;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 21){
-			// 		// echo "high";
-			// 		if ($FTR == 1) {
-			// 			$weight = 5;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 7;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 7;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else {
-			// 		echo "invalid DET value";
-			// 	}
-			// } else if ($tipe === "EQ") {
-			// 	$DET = $modelFp[$i]->DET;
-			// 	if ($DET >= 1 and $DET <=5) {
-			// 		$FTR = $modelFp[$i]->FTR;
-			// 		// echo "low";
-			// 		if ($FTR == 1) {
-			// 			$weight = 3;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 3;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 4;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 6 and $DET <=20){
-			// 		// echo "average";
-			// 		if ($FTR == 1) {
-			// 			$weight = 3;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 6;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else if($DET >= 21){
-			// 		// echo "high";
-			// 		if ($FTR == 1) {
-			// 			$weight = 4;
-			// 		} else if ($FTR >= 2 and $FTR <=3) {
-			// 			$weight = 6;
-			// 		} else if ($FTR >= 4){
-			// 			$weight = 6;
-			// 		} else{
-			// 			echo "invalid FTR value";
-			// 		}
-			// 	} else {
-			// 		echo "invalid DET value";
-			// 	}
-			// } else {
-			// 	echo "Invalid Function Type";
-			// }
 			$modelFp[$i]->weight = $weight;
 			$modelFp[$i]->save();
 		}
@@ -246,13 +48,36 @@ class CountController extends Controller
 
 		// Count UFP
 		$UFP = 0;
-		for ($i=0; $i < count($modelFp); $i++) { 
-			$UFP = $UFP + $modelFp[$i]->weight; 
+		$UFPSQL = 0;
+		$UFPPHP = 0;
+		$UFPHTMLJS = 0;
+		// count ufp per tipe
+		for ($i=0; $i < count($modelFp); $i++) {
+			if ($modelFp[$i]->bahasa == "SQL") {
+				$UFPSQL = $UFPSQL + $modelFp[$i]->weight;
+			} else if ($modelFp[$i]->bahasa == "PHP") {
+				$UFPPHP = $UFPPHP + $modelFp[$i]->weight;
+			} else if ($modelFp[$i]->bahasa == "HTML" or $modelFp[$i]->tipe ==="Javascript"){
+				$UFPHTMLJS = $UFPHTMLJS + $modelFp[$i]->weight;
+			}
+			// $UFP = $UFP + $modelFp[$i]->weight; 
 		}
+		// sum UFP
+		$UFP = $UFPSQL + $UFPPHP + $UFPHTMLJS;
+
+		// multiply UFP with Productivity Factor
+		$UFPSQL = $UFPSQL*37;
+		$UFPPHP = $UFPPHP*53;
+		$UFPHTMLJS = $UFPHTMLJS*58;
+		// sum UFP with productivity factor
+		$UFPmultiplied = $UFPSQL + $UFPPHP + $UFPHTMLJS;
+
 		$modelFPA->ufp = $UFP;
 		$modelFPA->save();
 		$FP = $modelFPA->tca*$modelFPA->ufp;
+		$LOC = $modelFPA->tca*$UFPmultiplied;
 		$modelFPA->fp = $FP;
+		$modelFPA->loc = $LOC;
 		$modelFPA->save();
 		// End Count UFP
 

@@ -117,8 +117,8 @@ class FunctionController extends Controller
 		{
 			$modelFp->attributes=$_POST['FpaFp'];
 			$modelFp->id_fpa = $id_fpa;
-			$modelFp->tipe = 'ILF';
-			// $modelFp->DET = 0;
+			$modelFp->bahasa = 'SQL';
+			$modelFp->RET= $modelFp->RET+1;
 			if ($modelFp->save()) {
 				// if (isset($_POST['DET'])) {
 				// 	foreach ($_POST['DET'] as $DET) {

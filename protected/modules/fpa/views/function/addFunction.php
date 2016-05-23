@@ -17,11 +17,21 @@
 				<label class="mdl-textfield__label" for="nama">Function Name</label>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				<input class="mdl-textfield__input" type="text" id="type" name="FpaFp[tipe]">
+				<select class="mdl-textfield__input" id="type" name="FpaFp[tipe]">
+					<option value=""></option>
+					<option value="EI">External Input</option>
+					<option value="EO">External Output</option>
+					<option value="EQ">External Inquiries</option>
+				</select>
 				<label class="mdl-textfield__label" for="type">Function Type</label>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
-				<input class="mdl-textfield__input" type="text" id="programming" name="FpaFp[bahasa]">
+				<select class="mdl-textfield__input" id="programming" name="FpaFp[bahasa]">
+					<option value=""></option>
+					<option value="PHP">PHP</option>
+					<option value="HTML">HTML</option>
+					<option value="Javascript">Javascript</option>
+				</select>
 				<label class="mdl-textfield__label" for="programming">Programming Language</label>
 			</div>
 
@@ -32,7 +42,7 @@
 
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
 				<input class="mdl-textfield__input" type="number" id="FTR" name="FpaFp[FTR]">
-				<label class="mdl-textfield__label" for="FTR">Table used</label>
+				<label class="mdl-textfield__label" for="FTR">Table</label>
 			</div>
 
 <!-- 			<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
