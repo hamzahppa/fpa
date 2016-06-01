@@ -69,7 +69,7 @@
 				Continue Input
 			</a>
 		<?php else: ?>
-			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/select', array('id'=>$model->id_fpa)); ?>">
+			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/editTdi', array('id'=>$model->id_fpa)); ?>">
 				Edit GSC's
 			</a>
 		<?php endif ?>

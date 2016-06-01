@@ -111,7 +111,7 @@ class TdiController extends Controller
 					'id_gsc'=>$modelTdi->id_gsc+1,
 				));
 			}
-			$this->redirect(Yii::app()->createUrl('fpa/function'));
+			$this->redirect(array('overview'));
 		}
 		throw new CHttpException("Can not save value", 200);
 	}
