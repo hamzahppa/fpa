@@ -8159,6 +8159,7 @@ REQUEST_URI=/fpa/index.php/fpa/project/edit/id/images/touch/chrome-touch-icon-19
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php (133)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php (97)
 in C:\xampp\htdocs\fpa\index.php (13)
+<<<<<<< HEAD
 2016/06/01 06:39:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "fpa/images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/images/touc...')
@@ -9024,6 +9025,9 @@ in C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php (3)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\TdiController.php (101)
 in C:\xampp\htdocs\fpa\index.php (13)
 2016/06/01 15:04:36 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+=======
+2016/06/01 15:18:06 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+>>>>>>> feature
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CController.php(869): TdiController->renderFile()
 #1 C:\xampp\htdocs\yii\framework\web\CController.php(782): TdiController->renderPartial()
@@ -9047,7 +9051,11 @@ REQUEST_URI=/fpa/index.php/fpa/tdi/addTdi/id_gsc/images/touch/chrome-touch-icon-
 in C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php (3)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\TdiController.php (101)
 in C:\xampp\htdocs\fpa\index.php (13)
+<<<<<<< HEAD
 2016/06/01 15:05:29 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+=======
+2016/06/01 15:18:13 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+>>>>>>> feature
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CController.php(869): TdiController->renderFile()
 #1 C:\xampp\htdocs\yii\framework\web\CController.php(782): TdiController->renderPartial()
@@ -9071,6 +9079,7 @@ REQUEST_URI=/fpa/index.php/fpa/tdi/addTdi/id_gsc/images/touch/chrome-touch-icon-
 in C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php (3)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\TdiController.php (101)
 in C:\xampp\htdocs\fpa\index.php (13)
+<<<<<<< HEAD
 2016/06/01 15:05:34 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CController.php(869): TdiController->renderFile()
@@ -9096,6 +9105,9 @@ in C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php (3)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\TdiController.php (101)
 in C:\xampp\htdocs\fpa\index.php (13)
 2016/06/01 15:05:59 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+=======
+2016/06/01 15:18:29 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+>>>>>>> feature
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CController.php(869): TdiController->renderFile()
 #1 C:\xampp\htdocs\yii\framework\web\CController.php(782): TdiController->renderPartial()
@@ -9119,7 +9131,11 @@ REQUEST_URI=/fpa/index.php/fpa/tdi/addTdi/id_gsc/images/touch/chrome-touch-icon-
 in C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php (3)
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\TdiController.php (101)
 in C:\xampp\htdocs\fpa\index.php (13)
+<<<<<<< HEAD
 2016/06/01 15:06:02 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+=======
+2016/06/01 15:18:41 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\modules\fpa\views\tdi\addTdi.php:3)
+>>>>>>> feature
 Stack trace:
 #0 C:\xampp\htdocs\yii\framework\web\CController.php(869): TdiController->renderFile()
 #1 C:\xampp\htdocs\yii\framework\web\CController.php(782): TdiController->renderPartial()
