@@ -17,7 +17,7 @@ class ProjectController extends Controller
 		$user = Yii::app()->user->no_user;
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','tambah','detail','edit','select', 'done'),
+				'actions'=>array('index','tambah','detail','edit','select', 'done', 'editTdi'),
 				'expression'=>"$user !== null",
 			),
 			array('deny',  // deny all users
@@ -137,6 +137,12 @@ class ProjectController extends Controller
 	{
 		unset(Yii::app()->session['workonproject']);
 		unset(Yii::app()->session['workonproject_name']);
+	}
+
+	public function actionEditTdi($id)
+	{
+		$this->setProject($id);
+		$this->redirect(Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>1)));
 	}
 
 	public function getGscPoint($id_gsc, $value)

@@ -1,7 +1,7 @@
 <?php  ?>
 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 	<div class="mdl-card__title">
-		<h2 class="mdl-card__title-text">Add Project</h2>
+		<h2 class="mdl-card__title-text">Edit Project</h2>
 	</div>
 	<div class="mdl-card__supporting-text">
 		Input the required data to create a project

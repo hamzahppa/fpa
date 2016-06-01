@@ -33,7 +33,7 @@
 		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/function') ?>">
 			Continue
 		</a>
-		<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/tdi/index'); ?>">
+		<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>1)); ?>">
 			Edit
 		</a>
 	</div>
