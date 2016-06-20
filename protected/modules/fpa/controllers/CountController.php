@@ -9,7 +9,7 @@ class CountController extends Controller
 		$user = Yii::app()->user->no_user;
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index'),
+				'actions'=>array('index', 'riwayat'),
 				'expression'=>"$user !== null",
 			),
 			array('deny',  // deny all users
@@ -28,10 +28,12 @@ class CountController extends Controller
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFPA = FpaFpa::model()->findByPk($id_fpa);
+		$modelRiwayat = new FpaRiwayat;
 		// count TDI and TCA
 		$TDI = $this->countTDI($id_fpa);
 		$TCA = $this->countTCA($TDI);
 		$modelFPA->tca = $TCA;
+		$modelRiwayat->tca = $TCA;
 		$modelFPA->save();
 		// End Count TDI and TCA
 
@@ -73,9 +75,17 @@ class CountController extends Controller
 		$UFPmultiplied = $UFPSQL + $UFPPHP + $UFPHTMLJS;
 
 		$modelFPA->ufp = $UFP;
+		$modelRiwayat->ufp = $UFP;
 		$modelFPA->save();
 		$FP = $modelFPA->tca*$modelFPA->ufp;
 		$LOC = $modelFPA->tca*$UFPmultiplied;
+		if ($modelFPA->loc != $LOC) {
+			$modelRiwayat->fp = $FP;
+			$modelRiwayat->loc = $LOC;
+			$modelRiwayat->update_date = date('Y-m-d h:m:s');
+			$modelRiwayat->id_fpa = $id_fpa;
+			$modelRiwayat->save();
+		}
 		$modelFPA->fp = $FP;
 		$modelFPA->loc = $LOC;
 		$modelFPA->save();
@@ -120,7 +130,9 @@ class CountController extends Controller
 				} else if ($RET >= 6){
 					$group = "average";
 				} else{
-					echo "invalid RET value";
+					// echo "invalid RET value";
+					throw new CHttpException(501, "Invalid RET Value on Table '$modelFp->nama_fp'");
+					
 				}
 			} else if($DET >= 20 and $DET <=50){
 				$RET = $modelFp->RET;
@@ -132,7 +144,8 @@ class CountController extends Controller
 				} else if ($RET >= 6){
 					$group = "high";
 				} else{
-					echo "invalid RET value";
+					// echo "invalid RET value";
+					throw new CHttpException(501, "Invalid RET Value on Table '$modelFp->nama_fp'");
 				}
 			} else if($DET >= 51){
 				$RET = $modelFp->RET;
@@ -144,10 +157,12 @@ class CountController extends Controller
 				} else if ($RET >= 6){
 					$group = "high";
 				} else {
-					echo "invalid RET value";
+					// echo "invalid RET value";
+					throw new CHttpException(501, "Invalid RET Value on Table '$modelFp->nama_fp'");
 				}
 			} else {
-				echo "invalid DET value";
+				// echo "invalid DET value";
+				throw new CHttpException(501, "Invalid DET Value on Table '$modelFp->nama_fp'");
 			}
 		} else if ($tipe === "EI") {
 			$DET = $modelFp->DET;
@@ -161,7 +176,8 @@ class CountController extends Controller
 				} else if ($FTR >= 3){
 					$group = "average";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(502, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 				}
 			} else if($DET >= 5 and $DET <=15){
 				$FTR = $modelFp->FTR;
@@ -173,7 +189,8 @@ class CountController extends Controller
 				} else if ($FTR >= 3){
 					$group = "high";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(502, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 				}
 			} else if($DET >= 16){
 				$FTR = $modelFp->FTR;
@@ -185,10 +202,13 @@ class CountController extends Controller
 				} else if ($FTR >= 3){
 					$group = "high";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(502, "Invalid FTR Value on Function '$modelFp->nama_fp'");
+					
 				}
 			} else {
-				echo "invalid DET value";
+				// echo "invalid DET value";
+				throw new CHttpException(502, "Invalid DET Value on Function '$modelFp->nama_fp'");
 			}
 		} else if ($tipe === "EO" or $tipe === "EQ") {
 			$DET = $modelFp->DET;
@@ -202,7 +222,8 @@ class CountController extends Controller
 				} else if ($FTR >= 4){
 					$group = "average";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(503, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 				}
 			} else if($DET >= 6 and $DET <=20){
 				$FTR = $modelFp->FTR;
@@ -214,7 +235,8 @@ class CountController extends Controller
 				} else if ($FTR >= 4){
 					$group = "high";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(503, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 				}
 			} else if($DET >= 21){
 				$FTR = $modelFp->FTR;
@@ -226,13 +248,16 @@ class CountController extends Controller
 				} else if ($FTR >= 4){
 					$group = "high";
 				} else{
-					echo "invalid FTR value";
+					// echo "invalid FTR value";
+					throw new CHttpException(503, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 				}
 			} else {
-				echo "invalid DET value";
+				// echo "invalid DET value";
+				throw new CHttpException(503, "Invalid DET Value on Function '$modelFp->nama_fp'");
 			}
 		} else {
-			echo "Invalid FUnction Type";
+			// echo "Invalid FUnction Type";
+			throw new CHttpException(500, "Invalid FTR Value on Function '$modelFp->nama_fp'");
 		}
 		return $group;
 	}
@@ -294,6 +319,16 @@ class CountController extends Controller
 			echo "Invalid Type";
 		}
 		return $weight;
+	}
+
+	public function actionHistory()
+	{
+		$id_fpa = $this->workonproject();
+		$modelRiwayat = FpaRiwayat::model()->findAllByAttributes(array('id_fpa'=>$id_fpa), array('order'=>'update_date DESC'));
+
+		$this->render('riwayat', array(
+			'modelRiwayat'=>$modelRiwayat,
+		));
 	}
 
 	public function workOnProject()

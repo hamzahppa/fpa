@@ -17,7 +17,7 @@
 		<?php $i=0; foreach ($modelGsc->fpaGscpoints as $Gscpoint): ?>
 			<li class="mdl-list__item">
 				<span class="mdl-list__item-primary-content">
-					<?php echo $Gscpoint->point; ?>
+					<?php echo $i; ?> | <?php echo $Gscpoint->point; ?>
 				</span>
 				<span class="mdl-list__item-secondary-action">
 					<label class="fpa-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-<?php echo $i ?>">

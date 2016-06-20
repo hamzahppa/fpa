@@ -1,32 +1,26 @@
 <?php
 
 /**
- * This is the model class for table "fpa_fpa".
+ * This is the model class for table "fpa_riwayat".
  *
- * The followings are the available columns in table 'fpa_fpa':
- * @property integer $id_fpa
- * @property string $nama_fpa
- * @property double $tca
- * @property double $ufp
- * @property double $fp
+ * The followings are the available columns in table 'fpa_riwayat':
+ * @property integer $id_riwayat
  * @property double $loc
- * @property string $deskripsi
- * @property integer $no_user
+ * @property double $fp
+ * @property string $update_date
+ * @property integer $id_fpa
  *
  * The followings are the available model relations:
- * @property FpaFp[] $fpaFps
- * @property FpaUser $noUser
- * @property FpaRiwayat[] $fpaRiwayats
- * @property FpaTdi[] $fpaTdis
+ * @property FpaFpa $idFpa
  */
-class FpaFpa extends CActiveRecord
+class FpaRiwayat extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'fpa_fpa';
+		return 'fpa_riwayat';
 	}
 
 	/**
@@ -37,14 +31,12 @@ class FpaFpa extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('nama_fpa, no_user', 'required'),
-			array('no_user', 'numerical', 'integerOnly'=>true),
-			array('tca, ufp, fp, loc', 'numerical'),
-			array('nama_fpa', 'length', 'max'=>255),
-			array('deskripsi', 'safe'),
+			array('loc, fp, update_date, id_fpa', 'required'),
+			array('id_fpa', 'numerical', 'integerOnly'=>true),
+			array('loc, fp', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_fpa, nama_fpa, tca, ufp, fp, loc, deskripsi, no_user', 'safe', 'on'=>'search'),
+			array('id_riwayat, loc, fp, update_date, id_fpa', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,10 +48,7 @@ class FpaFpa extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fpaFps' => array(self::HAS_MANY, 'FpaFp', 'id_fpa'),
-			'noUser' => array(self::BELONGS_TO, 'FpaUser', 'no_user'),
-			'fpaRiwayats' => array(self::HAS_MANY, 'FpaRiwayat', 'id_fpa'),
-			'fpaTdis' => array(self::HAS_MANY, 'FpaTdi', 'id_fpa'),
+			'idFpa' => array(self::BELONGS_TO, 'FpaFpa', 'id_fpa'),
 		);
 	}
 
@@ -69,14 +58,11 @@ class FpaFpa extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'id_fpa' => 'Id Fpa',
-			'nama_fpa' => 'Nama Fpa',
-			'tca' => 'Tca',
-			'ufp' => 'Ufp',
-			'fp' => 'Fp',
+			'id_riwayat' => 'Id Riwayat',
 			'loc' => 'Loc',
-			'deskripsi' => 'Deskripsi',
-			'no_user' => 'No User',
+			'fp' => 'Fp',
+			'update_date' => 'Update Date',
+			'id_fpa' => 'Id Fpa',
 		);
 	}
 
@@ -98,15 +84,11 @@ class FpaFpa extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('id_fpa',$this->id_fpa);
-		$criteria->compare('nama_fpa',$this->nama_fpa,true);
-		$criteria->compare('tca',$this->tca);
-		$criteria->compare('ufp',$this->ufp);
-		$criteria->compare('fp',$this->fp);
+		$criteria->compare('id_riwayat',$this->id_riwayat);
 		$criteria->compare('loc',$this->loc);
-		$criteria->compare('deskripsi',$this->deskripsi,true);
-		$criteria->compare('no_user',$this->no_user);
-		$criteria->order = 'id_fpa DESC';
+		$criteria->compare('fp',$this->fp);
+		$criteria->compare('update_date',$this->update_date,true);
+		$criteria->compare('id_fpa',$this->id_fpa);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -117,7 +99,7 @@ class FpaFpa extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return FpaFpa the static model class
+	 * @return FpaRiwayat the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{

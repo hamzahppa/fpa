@@ -18,7 +18,7 @@
 		    				<?php if ($modelFPA[$i]->loc == 0 || $modelFPA[$i]->loc == null): ?>
 		    					Unfinished
 		    				<?php else: ?>
-				    			<?php echo $modelFPA[$i]->loc; ?> LOC
+				    			<?php echo round($modelFPA[$i]->loc, 1); ?> LOC
 		    				<?php endif ?>
 		    			</span>
 		    		</span>

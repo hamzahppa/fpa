@@ -44,7 +44,7 @@ class ProjectController extends Controller
 			));
 		}
 
-		$modelFPA = FpaFpa::model()->findAllByAttributes(array('no_user'=>$user));
+		$modelFPA = FpaFpa::model()->findAllByAttributes(array('no_user'=>$user), array('order'=>'id_fpa DESC'));
 		 
 		$this->render('index', array(
 			'modelFPA'=>$modelFPA,
@@ -94,7 +94,7 @@ class ProjectController extends Controller
 
 	public function actionEdit($id)
 	{
-		$this->setProject($id);
+		// $this->setProject($id);
 		$model = FpaFpa::model()->findByPk($id);
 
 		$this->performAjaxValidation($model);
@@ -105,6 +105,7 @@ class ProjectController extends Controller
 			if ($model->save()) {
 				$this->setProject($model->id_fpa);
 				$this->redirect(Yii::app()->createUrl('fpa/project/detail', array('id'=>$model->id_fpa)));
+				// $this->redirect(Yii::app()->createUrl('fpa/project'));
 			}
 		}
 
@@ -116,7 +117,7 @@ class ProjectController extends Controller
 	public function actionSelect($id)
 	{
 		$this->setProject($id);
-		$this->redirect(Yii::app()->createUrl('fpa/tdi'));
+		$this->redirect(array('detail', 'id'=>$id));
 	}
 
 	public function actionDone()

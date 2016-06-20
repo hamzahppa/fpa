@@ -44,8 +44,9 @@
 				<?php $i=0;foreach ($model->fpaTdis as $Tdis): ?>
 				  <li class="fpa-list mdl-list__item mdl-list__item--three-line">
 				    <span class="mdl-list__item-primary-content">
-				      <i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i>
-				      <span><?php echo $Tdis->idGsc->gsc ?></span>
+				      <!-- <i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i> -->
+				      <a href="<?php echo Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>$Tdis->id_gsc, 'stat'=>'edit')) ?>"><div class="fpa-icon material-icons mdl-badge mdl-badge--overlap mdl-list__item-avatar" data-badge="<?php echo $Tdis->value ?>" style="border-radius: 10%;">edit</div></a>
+				      <span ><?php echo $Tdis->idGsc->gsc; ?></span>
 				      <span class="mdl-list__item-text-body">
 				      	<?php 
 				      		$i++;
@@ -65,52 +66,13 @@
 		</div>
 		<div class="mdl-card__actions mdl-card--border">
 		<?php if ($i < 14): ?>
-			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/select', array('id'=>$model->id_fpa)); ?>">
+			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/editTdi', array('id'=>$model->id_fpa)); ?>">
 				Continue Input
 			</a>
 		<?php else: ?>
 			<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/editTdi', array('id'=>$model->id_fpa)); ?>">
 				Edit GSC's
 			</a>
-		<?php endif ?>
-		</div>
-	</div>
-	<!-- Project Function -->
-	<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
-		<div class="mdl-card__title">
-			<h2 class="mdl-card__title-text">Function(s)</h2>
-		</div>
-		<div class="fpa-supporting-text mdl-card__supporting-text">
-		<?php if ($modelFunction == null): ?>
-			No Function(s) found. You can add function in <b>Add Function</b> menu.
-		<?php else: ?>
-		    <div class="table-responsive-vertical shadow-z-1">
-		      <!-- Table starts here -->
-		      <table id="table" class="table table-hover table-bordered">
-		        <thead>
-		          <tr>
-		            <th>No</th>
-		            <th>Function</th>
-		            <th>Type</th>
-		            <th>Programming</th>
-		            <th>DET</th>
-		            <th>FTR</th>
-		          </tr>
-		        </thead>
-		        <tbody>
-		        <?php $i=1; foreach ($modelFunction as $Fps): ?>
-		          <tr>
-		            <td data-title="No"><?php echo $i++ ?></td>
-		            <td data-title="Function"><?php echo $Fps->nama_fp; ?></td>
-		            <td data-title="Type"><?php echo $Fps->tipe; ?></td>
-		            <td data-title="Programming"><?php echo $Fps->bahasa; ?></td>
-		            <td data-title="DET"><?php echo $Fps->DET; ?></td>
-		            <td data-title="FTR"><?php echo $Fps->FTR; ?></td>
-		          </tr>
-		        <?php endforeach; ?>
-		        </tbody>
-		      </table>
-		    </div>
 		<?php endif ?>
 		</div>
 	</div>
@@ -145,6 +107,45 @@
 		            <td data-title="Programming"><?php echo $Tables->bahasa; ?></td>
 		            <td data-title="DET"><?php echo $Tables->DET; ?></td>
 		            <td data-title="RET"><?php echo $Tables->RET; ?></td>
+		          </tr>
+		        <?php endforeach; ?>
+		        </tbody>
+		      </table>
+		    </div>
+		<?php endif ?>
+		</div>
+	</div>
+	<!-- Project Function -->
+	<div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
+		<div class="mdl-card__title">
+			<h2 class="mdl-card__title-text">Function(s)</h2>
+		</div>
+		<div class="fpa-supporting-text mdl-card__supporting-text">
+		<?php if ($modelFunction == null): ?>
+			No Function(s) found. You can add function in <b>Add Function</b> menu.
+		<?php else: ?>
+		    <div class="table-responsive-vertical shadow-z-1">
+		      <!-- Table starts here -->
+		      <table id="table" class="table table-hover table-bordered">
+		        <thead>
+		          <tr>
+		            <th>No</th>
+		            <th>Function</th>
+		            <th>Type</th>
+		            <th>Programming</th>
+		            <th>DET</th>
+		            <th>FTR</th>
+		          </tr>
+		        </thead>
+		        <tbody>
+		        <?php $i=1; foreach ($modelFunction as $Fps): ?>
+		          <tr>
+		            <td data-title="No"><?php echo $i++ ?></td>
+		            <td data-title="Function"><?php echo $Fps->nama_fp; ?></td>
+		            <td data-title="Type"><?php echo $Fps->tipe; ?></td>
+		            <td data-title="Programming"><?php echo $Fps->bahasa; ?></td>
+		            <td data-title="DET"><?php echo $Fps->DET; ?></td>
+		            <td data-title="FTR"><?php echo $Fps->FTR; ?></td>
 		          </tr>
 		        <?php endforeach; ?>
 		        </tbody>

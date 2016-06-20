@@ -19,6 +19,7 @@
 								<th>Programming</th>
 								<th>DET</th>
 								<th>RET</th>
+								<th>EDIT</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -30,6 +31,7 @@
 								<td data-title="Programming"><?php echo $Tables->bahasa; ?></td>
 								<td data-title="DET"><?php echo $Tables->DET; ?></td>
 								<td data-title="RET"><?php echo $Tables->RET; ?></td>
+								<td data-title="DET"><a href="<?php echo Yii::app()->createUrl('fpa/function/editFunction', array('id_fp'=>$Tables->id_fp)) ?>" style="text-decoration:none;">EDIT</a></td>
 							</tr>
 						<?php endforeach; ?>
 						</tbody>
@@ -66,6 +68,7 @@
 								<th>Programming</th>
 								<th>DET</th>
 								<th>FTR</th>
+								<th>EDIT</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -77,6 +80,7 @@
 								<td data-title="Programming"><?php echo $Fps->bahasa; ?></td>
 								<td data-title="DET"><?php echo $Fps->DET; ?></td>
 								<td data-title="FTR"><?php echo $Fps->FTR; ?></td>
+								<td data-title="EDIT"><a href="<?php echo Yii::app()->createUrl('fpa/function/editFunction', array('id_fp'=>$Fps->id_fp)) ?>" style="text-decoration:none;">EDIT</a></td>
 							</tr>
 						<?php endforeach; ?>
 						</tbody>

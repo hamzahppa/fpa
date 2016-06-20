@@ -17,7 +17,7 @@
 		<?php $i=0; foreach ($modelGsc->fpaGscpoints as $Gscpoint): ?>
 			<li class="mdl-list__item">
 				<span class="mdl-list__item-primary-content">
-					<?php echo $Gscpoint->point; ?>
+					<?php echo $i; ?> | <?php echo $Gscpoint->point; ?>
 				</span>
 				<span class="mdl-list__item-secondary-action">
 					<label class="fpa-list-radio mdl-radio mdl-js-radio mdl-js-ripple-effect" for="list-option-<?php echo $i ?>">
@@ -34,12 +34,19 @@
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
 	<?php if ($modelGsc->id_gsc>1): ?>
-		<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>$modelGsc->id_gsc-1)); ?>">
-			Previous
-		</a>
+		<?php if ($stat == "noedit"): ?>
+			<a class="mdl-button mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>$modelGsc->id_gsc-1)); ?>">
+				Previous
+			</a>
+		<?php endif ?>
 	<?php endif; ?>
 	<?php if ($modelGsc->id_gsc < 14): ?>
-		<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Next</button>
+		<?php if ($stat == "edit"): ?>
+			<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Save</button>
+		<?php endif ?>
+		<?php if ($stat == "noedit"): ?>
+			<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Next</button>
+		<?php endif ?>
 	<?php endif ?>
 	<?php if ($modelGsc->id_gsc == 14): ?>
 		<button type="submit" class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">Save</button>

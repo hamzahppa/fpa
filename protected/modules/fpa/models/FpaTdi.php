@@ -87,6 +87,7 @@ class FpaTdi extends CActiveRecord
 		$criteria->compare('id_gsc',$this->id_gsc);
 		$criteria->compare('value',$this->value);
 		$criteria->compare('id_fpa',$this->id_fpa);
+		$criteria->order = 'id_gsc ASC';
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

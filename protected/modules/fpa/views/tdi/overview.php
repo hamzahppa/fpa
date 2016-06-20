@@ -9,7 +9,8 @@
 		<?php $i=0; foreach ($modelTdi as $Tdis): ?>
 			<li class="fpa-list mdl-list__item mdl-list__item--three-line">
 				<span class="mdl-list__item-primary-content">
-					<i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i>
+					<!-- <i class="fpa-icon material-icons mdl-list__item-avatar" style="border-radius: 10%;">data_usage</i> -->
+					<a href="<?php echo Yii::app()->createUrl('fpa/tdi/addTdi', array('id_gsc'=>$Tdis->id_gsc, 'stat'=>'edit')) ?>"><div class="fpa-icon material-icons mdl-badge mdl-badge--overlap mdl-list__item-avatar" data-badge="<?php echo $Tdis->value ?>" style="border-radius: 10%;">edit</div></a>
 					<span><?php echo $Tdis->idGsc->gsc ?></span>
 					<span class="mdl-list__item-text-body">
 						<?php 

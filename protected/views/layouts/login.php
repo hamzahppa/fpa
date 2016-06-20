@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Website yang dibangun untuk menghitung perkiraan ukuran software">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Login</title>
+	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <!-- Add to homescreen for Chrome on Android -->
     <meta name="mobile-web-app-capable" content="yes">

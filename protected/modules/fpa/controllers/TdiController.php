@@ -62,7 +62,7 @@ class TdiController extends Controller
 
 	}
 
-	public function actionAddTdi($id_gsc)
+	public function actionAddTdi($id_gsc, $stat = "noedit")
 	{
 		$id_fpa = $this->workonproject();
 		$modelGsc = FpaGsc::model()->findByPk($id_gsc);
@@ -83,6 +83,7 @@ class TdiController extends Controller
 			$this->render('updateTdi', array(
 				'modelTdi'=>$modelTdi,
 				'modelGsc'=>$modelGsc,
+				'stat'=>$stat,
 			));
 		} else {
 		// if no
@@ -120,7 +121,7 @@ class TdiController extends Controller
 	public function actionOverview()
 	{
 		$id_fpa = $this->workOnProject();
-		$modelTdi = FpaTdi::model()->findAllByAttributes(array('id_fpa'=>$id_fpa));
+		$modelTdi = FpaTdi::model()->findAllByAttributes(array('id_fpa'=>$id_fpa), array('order'=>'id_gsc ASC'));
 
 		if ($modelTdi == null) {
 			throw new CHttpException(404, "Error, the requested page does not exist.");

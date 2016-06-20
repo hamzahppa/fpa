@@ -15,7 +15,6 @@
  * @property integer $weight
  *
  * The followings are the available model relations:
- * @property FpaDatafunction[] $fpaDatafunctions
  * @property FpaFpa $idFpa
  */
 class FpaFp extends CActiveRecord
@@ -55,7 +54,6 @@ class FpaFp extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'fpaDatafunctions' => array(self::HAS_MANY, 'FpaDatafunction', 'id_fp'),
 			'idFpa' => array(self::BELONGS_TO, 'FpaFpa', 'id_fpa'),
 		);
 	}

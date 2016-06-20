@@ -17,7 +17,7 @@ class FunctionController extends Controller
 		$user = Yii::app()->user->no_user;
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','addFunction','addTable'),
+				'actions'=>array('index','addFunction','addTable', 'editFunction'),
 				'expression'=>"$user !== null",
 			),
 			array('deny',  // deny all users
@@ -55,7 +55,6 @@ class FunctionController extends Controller
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFp = new FpaFp;
-		$modelDataFunction = new FpaDatafunction;
 
 		$this->performAjaxValidation($modelFp);
 		if (isset($_POST['FpaFp'])) 
@@ -93,24 +92,63 @@ class FunctionController extends Controller
 				// 	}
 				// }
 				$this->redirect('index');
-			}else{
-				throw new CHttpException("Can not save function", 310);
-				
+			}
+			else{
+				throw new CHttpException(310, "Can not save function");
 			}
 		}
 
 
 		$this->render('addFunction', array(
 			'modelFp'=>$modelFp,
-			'modelDataFunction'=>$modelDataFunction,
 		));
+	}
+
+	public function actionEditFunction($id_fp)
+	{
+		$id_fpa = $this->workOnProject();
+		$modelFp = FpaFp::model()->findByPk($id_fp);
+
+		$this->performAjaxValidation($modelFp);
+		if (isset($_POST['FpaFp'])) 
+		{
+			if ($modelFp->tipe == "ILF" || $modelFp->tipe == "EIF") {
+				$modelFp->attributes=$_POST['FpaFp'];
+				$modelFp->RET = $modelFp->RET+1;
+				if ($modelFp->save()) {
+					$this->redirect(array('index'));
+				}
+				else{
+					throw new CHttpException(310, "Can not save function");
+				}
+			}
+			else{
+				$modelFp->attributes=$_POST['FpaFp'];
+				if ($modelFp->save()) {
+					$this->redirect(array('index'));
+				}
+				else{
+					throw new CHttpException(310, "Can not save function");
+				}
+			}
+		}
+
+		if ($modelFp->tipe == "ILF" || $modelFp->tipe == "EIF") {
+			$this->render('editTable', array(
+				'modelFp'=>$modelFp,
+			));	
+		}
+		if ($modelFp->tipe == "EI" || $modelFp->tipe == "EO" || $modelFp->tipe == "EQ") {
+			$this->render('editFunction', array(
+				'modelFp'=>$modelFp,
+			));	
+		}
 	}
 
 	public function actionAddTable()
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFp = new FpaFp;
-		$modelDataFunction = new FpaDatafunction;
 
 		$this->performAjaxValidation($modelFp);
 		if (isset($_POST['FpaFp'])) 
@@ -150,14 +188,13 @@ class FunctionController extends Controller
 				// }
 				$this->redirect('index');
 			}else{
-				throw new CHttpException("Can not save function", 320);
+				throw new CHttpException(320, "Can not save function");
 				
 			}
 		}
 
 		$this->render('addTable', array(
 			'modelFp'=>$modelFp,
-			'modelDataFunction'=>$modelDataFunction,
 		));
 	}
 
