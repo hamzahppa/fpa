@@ -125,8 +125,8 @@ return array(
 			'Port' => '465',
 			'SMTPSecure' => 'ssl',
 			'SMTPAuth' => true,
-			'Username' => 'tmenulis@gmail.com',
-			'Password' => '081329017460abd',
+			'Username' => 'email',
+			'Password' => 'password',
 		),
 	),
 );
