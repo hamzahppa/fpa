@@ -52,6 +52,35 @@ class LoginController extends Controller
 		$this->redirect(Yii::app()->homeUrl);
 	}
 
+	public function actionMailMe()
+	{
+		// $mail = new YiiMailer('contact', array('message' => $model->body, 'name' => $model->name, 'description' => 'Contact form'));
+		$mail = new YiiMailer();
+		$mail->setView('remainder');
+		$mail->setData(array(
+			'message' => 'Anda telah terdaftar dengan username dan Password berikut :',
+			'username' => 'user872913',
+			'password' => 'hamzahppa',
+			'name' => 'Admin Function Point Analysis', 
+			'description' => 'Pengingat Username dan Password'
+		));
+
+		//set properties
+		$mail->setFrom('tmenulis@gmail.com', 'Admin');
+		$mail->setSubject('Pendaftaran Berhasil, Pengingat Username and Password');
+		$mail->setTo('hamzahibnabdullah@gmail.com');
+		// $mail->SMTPDebug  = 1;
+
+		//send
+		if ($mail->send()) {
+			echo "Sukses";
+			// Yii::app()->user->setFlash('success','Thank you for contacting us. We will respond to you as soon as possible.');
+		} else {
+			echo "Gagal";
+			// Yii::app()->user->setFlash('error','Error while sending email: '.$mail->getError());
+		}	
+	}
+
 	public function actionRegister()
 	{
 		$model = new FpaUser;
@@ -65,7 +94,27 @@ class LoginController extends Controller
 		if (isset($_POST['FpaUser'])) {
 			$model->attributes = $_POST['FpaUser'];
 			if ($model->save()) {
-				$this->redirect('index');
+				$mail = new YiiMailer();
+				$mail->setView('remainder');
+				$mail->setData(array(
+					'message' => 'Anda telah terdaftar dengan username dan Password berikut :',
+					'username' => $model->username,
+					'password' => $model->password,
+					'name' => 'Admin Function Point Analysis', 
+					'description' => 'Pengingat Username dan Password'
+				));
+				//set properties
+				$mail->setFrom('tmenulis@gmail.com', 'Admin');
+				$mail->setSubject('Pendaftaran Berhasil, Pengingat Username and Password');
+				$mail->setTo('hamzahibnabdullah@gmail.com');
+				// $mail->SMTPDebug  = 1;
+				//send
+				if ($mail->send()) {
+					$this->redirect('index');
+				} else {
+					echo "gagalen";
+					// $this->redirect('index');
+				}	
 			}
 		}
 

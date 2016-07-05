@@ -12866,3 +12866,64 @@ Stack trace:
 REQUEST_URI=/fpa/index.php/fpa/function/images/touch/chrome-touch-icon-192x192.png
 HTTP_REFERER=http://localhost/fpa/index.php/fpa/function/index
 ---
+2016/07/05 06:39:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/touch/ch...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/
+---
+2016/07/05 06:39:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('login')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/login')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/login
+---
+2016/07/05 06:39:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/images/to...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/login/login
+---
+2016/07/05 07:22:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "yii.png".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('yii.png')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('yii.png')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/yii.png')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/yii.png
+HTTP_REFERER=http://localhost/fpa/index.php/login/mailMe
+---
+2016/07/05 07:24:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "yii.png".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('yii.png')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('yii.png')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/yii.png')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/yii.png
+HTTP_REFERER=http://localhost/fpa/index.php/login/mailMe
+---
+2016/07/05 08:00:19 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "fpa/images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/images/touc...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/fpa/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project
+---
