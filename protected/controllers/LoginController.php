@@ -36,6 +36,7 @@ class LoginController extends Controller
 					// berhasil login
 					$this->redirect(Yii::app()->createUrl('fpa/project'));
 				}
+				echo "gagal";
 			}
 
 			$this->render('index', array('model'=>$model));
@@ -49,6 +50,37 @@ class LoginController extends Controller
 	{
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	public function actionRegister()
+	{
+		$model = new FpaUser;
+
+		$username = "user".rand(100, 999).date('dH');
+		
+		$this->performAjaxValidation($model);
+
+		$model->username = $username;
+
+		if (isset($_POST['FpaUser'])) {
+			$model->attributes = $_POST['FpaUser'];
+			if ($model->save()) {
+				$this->redirect('index');
+			}
+		}
+
+		$this->render('register', array(
+			'model'=>$model,
+		));
+	}
+
+	protected function performAjaxValidation($model)
+	{
+		if (isset($_POST['ajax']) && $_POST['ajax']==='register-form') 
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		}
 	}
 }
 

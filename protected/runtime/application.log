@@ -12460,3 +12460,409 @@ Stack trace:
 REQUEST_URI=/fpa/index.php/fpa/function/editFunction/id_fp/images/touch/chrome-touch-icon-192x192.png
 in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\FunctionController.php (136)
 in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/24 06:19:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "fpa/images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/images/touc...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/fpa/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project
+---
+2016/06/24 06:19:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Error, the requested page does not exist.' in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php:176
+Stack trace:
+#0 C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php(89): ProjectController->loadModel('images')
+#1 [internal function]: ProjectController->actionDetail('images')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('detail')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/project/det...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/fpa/index.php/fpa/project/detail/id/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project/detail/id/21
+---
+2016/06/24 06:19:50 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/count/image...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/fpa/count/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/count/index
+---
+2016/06/24 06:43:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/touch/ch...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/
+---
+2016/06/24 06:48:22 [error] [exception.CException] exception 'CException' with message 'FpaUser and its behaviors do not have a method or closure named "findByAttributer".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\db\ar\CActiveRecord.php(227): CComponent->__call('findByAttribute...', Array)
+#1 C:\xampp\htdocs\fpa\protected\components\UserIdentity.php(20): CActiveRecord->__call('findByAttribute...', Array)
+#2 C:\xampp\htdocs\fpa\protected\components\UserIdentity.php(20): FpaUser->findByAttributer(Array)
+#3 C:\xampp\htdocs\fpa\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 C:\xampp\htdocs\yii\framework\validators\CInlineValidator.php(42): LoginForm->authenticate('password', Array)
+#5 C:\xampp\htdocs\yii\framework\validators\CValidator.php(213): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 C:\xampp\htdocs\yii\framework\base\CModel.php(159): CValidator->validate(Object(LoginForm), NULL)
+#7 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(34): CModel->validate()
+#8 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionIndex()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('index')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/fpa/index.php/
+HTTP_REFERER=http://localhost/fpa/index.php/
+---
+2016/06/24 06:48:43 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\fpa\protected\components\WebUser.php:13)
+Stack trace:
+#0 C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php(17): WebUser->__get()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(1144): ProjectController->accessRules()
+#2 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): ProjectController->filterAccessControl()
+#3 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): ProjectController->runActionWithFilters()
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): ProjectController->run()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/fpa/project
+in C:\xampp\htdocs\fpa\protected\components\WebUser.php (13)
+in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php (17)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 16:46:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "fpa/images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/images/touc...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/fpa/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project
+---
+2016/06/25 16:46:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Error, the requested page does not exist.' in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php:176
+Stack trace:
+#0 C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php(89): ProjectController->loadModel('images')
+#1 [internal function]: ProjectController->actionDetail('images')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('detail')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/project/det...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/fpa/index.php/fpa/project/detail/id/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project/detail/id/1
+---
+2016/06/25 16:56:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "register".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('register')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/register
+HTTP_REFERER=http://localhost/fpa/index.php
+---
+2016/06/25 16:56:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/touch/ch...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/register
+---
+2016/06/25 16:56:13 [error] [php] Undefined variable: model (C:\xampp\htdocs\fpa\protected\views\login\register.php:16)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(869): LoginController->renderFile()
+#1 C:\xampp\htdocs\yii\framework\web\CController.php(782): LoginController->renderPartial()
+#2 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(57): LoginController->render()
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(286): LoginController->runAction()
+#6 C:\xampp\htdocs\yii\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): LoginController->run()
+#8 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/login/register
+in C:\xampp\htdocs\fpa\protected\views\login\register.php (16)
+in C:\xampp\htdocs\fpa\protected\controllers\LoginController.php (57)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 16:57:14 [error] [php] include(username.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(186): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): createValidator()
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): FpaUser->createValidators()
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2236): FpaUser->getValidators()
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1434): activeInputField()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(725): activeTextField()
+#6 C:\xampp\htdocs\fpa\protected\views\login\register.php(16): CActiveForm->textField()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): LoginController->renderInternal()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(869): LoginController->renderFile()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(782): LoginController->renderPartial()
+#11 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(60): LoginController->render()
+#12 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(286): LoginController->runAction()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): LoginController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/login/register
+in C:\xampp\htdocs\fpa\protected\views\login\register.php (16)
+in C:\xampp\htdocs\fpa\protected\controllers\LoginController.php (60)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 17:04:17 [error] [php] include(username.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(186): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): createValidator()
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): FpaUser->createValidators()
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2236): FpaUser->getValidators()
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1628): activeInputField()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(771): activePasswordField()
+#6 C:\xampp\htdocs\fpa\protected\views\login\register.php(19): CActiveForm->passwordField()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): LoginController->renderInternal()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(869): LoginController->renderFile()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(782): LoginController->renderPartial()
+#11 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(60): LoginController->render()
+#12 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(286): LoginController->runAction()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): LoginController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/login/register
+in C:\xampp\htdocs\fpa\protected\views\login\register.php (19)
+in C:\xampp\htdocs\fpa\protected\controllers\LoginController.php (60)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 17:04:35 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/images/to...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/login/register
+---
+2016/06/25 17:17:47 [error] [php] include(username.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(186): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): createValidator()
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): FpaUser->createValidators()
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2236): FpaUser->getValidators()
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1434): activeInputField()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(725): activeTextField()
+#6 C:\xampp\htdocs\fpa\protected\views\login\register.php(15): CActiveForm->textField()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): LoginController->renderInternal()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(869): LoginController->renderFile()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(782): LoginController->renderPartial()
+#11 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(60): LoginController->render()
+#12 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(286): LoginController->runAction()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): LoginController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/login/register
+in C:\xampp\htdocs\fpa\protected\views\login\register.php (15)
+in C:\xampp\htdocs\fpa\protected\controllers\LoginController.php (60)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 17:18:21 [error] [php] include(username.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(186): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): createValidator()
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): FpaUser->createValidators()
+#3 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(2236): FpaUser->getValidators()
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1434): activeInputField()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(725): activeTextField()
+#6 C:\xampp\htdocs\fpa\protected\views\login\register.php(15): CActiveForm->textField()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): LoginController->renderInternal()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(869): LoginController->renderFile()
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(782): LoginController->renderPartial()
+#11 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(60): LoginController->render()
+#12 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(286): LoginController->runAction()
+#15 C:\xampp\htdocs\yii\framework\web\CController.php(265): LoginController->runActionWithFilters()
+#16 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): LoginController->run()
+#17 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#18 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#19 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/login/register
+in C:\xampp\htdocs\fpa\protected\views\login\register.php (15)
+in C:\xampp\htdocs\fpa\protected\controllers\LoginController.php (60)
+in C:\xampp\htdocs\fpa\index.php (13)
+2016/06/25 17:19:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/images/tou...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/site/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/site/login
+---
+2016/06/25 17:19:33 [error] [php] include(username.php): failed to open stream: No such file or directory (C:\xampp\htdocs\yii\framework\YiiBase.php:427)
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\validators\CValidator.php(186): import()
+#1 C:\xampp\htdocs\yii\framework\base\CModel.php(287): createValidator()
+#2 C:\xampp\htdocs\yii\framework\base\CModel.php(260): FpaUser->createValidators()
+#3 C:\xampp\htdocs\yii\framework\base\CModel.php(304): FpaUser->getValidators()
+#4 C:\xampp\htdocs\yii\framework\web\helpers\CHtml.php(1414): FpaUser->isAttributeRequired()
+#5 C:\xampp\htdocs\yii\framework\web\widgets\CActiveForm.php(597): activeLabelEx()
+#6 C:\xampp\htdocs\fpa\protected\views\fpaUser\_form.php(23): CActiveForm->labelEx()
+#7 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#8 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): FpaUserController->renderInternal()
+#9 C:\xampp\htdocs\yii\framework\web\CController.php(869): FpaUserController->renderFile()
+#10 C:\xampp\htdocs\fpa\protected\views\fpaUser\create.php(18): FpaUserController->renderPartial()
+#11 C:\xampp\htdocs\yii\framework\web\CBaseController.php(126): require()
+#12 C:\xampp\htdocs\yii\framework\web\CBaseController.php(95): FpaUserController->renderInternal()
+#13 C:\xampp\htdocs\yii\framework\web\CController.php(869): FpaUserController->renderFile()
+#14 C:\xampp\htdocs\yii\framework\web\CController.php(782): FpaUserController->renderPartial()
+#15 C:\xampp\htdocs\fpa\protected\controllers\FpaUserController.php(79): FpaUserController->render()
+#16 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): FpaUserController->actionCreate()
+#17 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#18 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): FpaUserController->runAction()
+#19 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#20 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CAccessControlFilter->filter()
+#21 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): FpaUserController->filterAccessControl()
+#22 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#23 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#24 C:\xampp\htdocs\yii\framework\web\CController.php(265): FpaUserController->runActionWithFilters()
+#25 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): FpaUserController->run()
+#26 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#27 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#28 C:\xampp\htdocs\fpa\index.php(13): CWebApplication->run()
+REQUEST_URI=/fpa/index.php/fpaUser/create
+in C:\xampp\htdocs\fpa\protected\views\fpaUser\_form.php (23)
+in C:\xampp\htdocs\fpa\protected\views\fpaUser\create.php (18)
+in C:\xampp\htdocs\fpa\protected\controllers\FpaUserController.php (79)
+2016/06/25 17:39:04 [error] [exception.CException] exception 'CException' with message 'LoginController and its behaviors do not have a method or closure named "performAjaxValidation".' in C:\xampp\htdocs\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(59): CComponent->__call('performAjaxVali...', Array)
+#1 C:\xampp\htdocs\fpa\protected\controllers\LoginController.php(59): LoginController->performAjaxValidation(Object(FpaUser))
+#2 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(49): LoginController->actionRegister()
+#3 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('register')
+#7 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/register')
+#8 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#9 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/fpa/index.php/login/register
+---
+2016/06/25 17:47:01 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "login".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('login')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('login/login')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/login/login
+HTTP_REFERER=http://localhost/fpa/index.php/login/register
+---
+2016/06/30 09:25:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "fpa/images/touch/chrome-touch-icon-192x192.png".' in C:\xampp\htdocs\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/images/touc...')
+#1 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/fpa/index.php/fpa/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project
+---
+2016/06/30 09:25:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Error, the requested page does not exist.' in C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php:176
+Stack trace:
+#0 C:\xampp\htdocs\fpa\protected\modules\fpa\controllers\ProjectController.php(89): ProjectController->loadModel('images')
+#1 [internal function]: ProjectController->actionDetail('images')
+#2 C:\xampp\htdocs\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ProjectController), Array)
+#3 C:\xampp\htdocs\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ProjectController), Object(ReflectionMethod), Array)
+#4 C:\xampp\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 C:\xampp\htdocs\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 C:\xampp\htdocs\yii\framework\web\CController.php(1145): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\yii\framework\web\filters\CInlineFilter.php(58): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 C:\xampp\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('detail')
+#13 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/project/det...')
+#14 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/fpa/index.php/fpa/project/detail/id/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/project/detail/id/17
+---
+2016/06/30 09:25:21 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/count/image...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/fpa/count/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/count/index
+---
+2016/06/30 09:26:38 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/tdi/images/...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/fpa/tdi/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/tdi/overview
+---
+2016/06/30 09:27:33 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "images".' in C:\xampp\htdocs\yii\framework\web\CController.php:483
+Stack trace:
+#0 C:\xampp\htdocs\yii\framework\web\CController.php(270): CController->missingAction('images')
+#1 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('images')
+#2 C:\xampp\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('fpa/function/im...')
+#3 C:\xampp\htdocs\yii\framework\base\CApplication.php(180): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\fpa\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/fpa/index.php/fpa/function/images/touch/chrome-touch-icon-192x192.png
+HTTP_REFERER=http://localhost/fpa/index.php/fpa/function/index
+---

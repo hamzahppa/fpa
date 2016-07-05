@@ -17,7 +17,7 @@ class UserIdentity extends CUserIdentity
 	 */
 	public function authenticate()
 	{
-		$users= FpaUser::model()->findByPk($this->username);
+		$users= FpaUser::model()->findByAttributes(array('username'=>$this->username));
 
 		if ($users === null) {
 			$this->errorCode=self::ERROR_USERNAME_INVALID;

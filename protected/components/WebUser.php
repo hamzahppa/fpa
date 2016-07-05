@@ -9,7 +9,7 @@
 				return null;
 			}
 
-			$model = FpaUser::model()->findByPk($this->name);
+			$model = FpaUser::model()->findByAttributes(array('username'=>$this->name));
 			return $model->no_user;
 		}
 	}

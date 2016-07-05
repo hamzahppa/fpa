@@ -29,9 +29,8 @@ class FpaUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username', 'unique'),
-			array('username, password, no_user', 'required'),
-			array('no_user', 'numerical', 'integerOnly'=>true),
+			array('no_user, username', 'unique'),
+			array('username, password', 'required'),
 			array('username, password', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

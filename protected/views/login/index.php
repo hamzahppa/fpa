@@ -11,12 +11,12 @@
 			'validateOnSubmit'=>true,
 		),
 	)); ?>
-	<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
 		<?php echo $form->labelEx($model,'Username', array('class'=>'mdl-textfield__label')); ?>
 		<?php echo $form->textField($model,'username', array('class'=>'mdl-textfield__input')); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
-	<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
 		<?php echo $form->labelEx($model,'Password', array('class'=>'mdl-textfield__label')); ?>
 		<?php echo $form->passwordField($model,'password', array('class'=>'mdl-textfield__input')); ?>
 		<?php echo $form->error($model,'password'); ?>
@@ -24,6 +24,7 @@
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
 		<button class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" type="submit">Login</button>
+		<a href="<?php echo Yii::app()->createUrl('login/register') ?>" class="mdl-button mdl-js-button mdl-js-ripple-effect">Register</a>
 	</div>
 	<?php $this->endWidget(); ?>
 </div>
