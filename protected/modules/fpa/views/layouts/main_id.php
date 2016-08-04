@@ -41,39 +41,24 @@
 				</button>
 				<div style="margin-left: 5px;"><?php echo Yii::app()->session['workonproject_name']; ?></div>
 				<ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect" for="project-menu">
-					<?php if (Yii::app()->session['lang'] == "ID"): ?>
-						<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('fpa/project/done') ?>">Selesai</a>
-					<?php else: ?>
-						<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('fpa/project/done') ?>">Done</a>
-					<?php endif ?>
+					<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('fpa/project/done') ?>">Selesai</a>
 				</ul>
 				<?php endif ?>
 
 				<div class="mdl-layout-spacer"></div>
-				<div style="margin-right: 10px;">
-					<?php 
-					// echo Yii::app()->user->name;
-					 ?>
-					<?php echo $this->getName(); ?>
-				</div>
+				<div style="margin-right: 10px;"><?php echo Yii::app()->user->name; ?></div>
 				<button id="logout-menu" class="mdl-button mdl-js-button mdl-button--icon">
 					<i class="material-icons">person</i>
 				</button>
 				<button id="language-menu" class="mdl-button mdl-js-button mdl-button--icon">
 					<i class="material-icons">book</i>
                 </button>
-				<?php if (Yii::app()->session['lang'] == "ID"): ?>
-					<div style="margin-right: 10px;">Bahasa | Indonesia</div>
-				<?php else: ?>
-					<div style="margin-right: 10px;">Language | English</div>
+				<?php if (isset(Yii::app()->session['lang'])): ?>
+					<div style="margin-right: 10px;">Lang | <?php echo Yii::app()->session['lang']; ?></div>
 				<?php endif ?>
 
 				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="logout-menu">
-					<?php if (Yii::app()->session['lang'] == "ID"): ?>
-						<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('login/logout') ?>">Keluar</a>
-					<?php else: ?>
-						<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('login/logout') ?>">Logout</a>
-					<?php endif ?>
+					<a class="mdl-menu__item" href="<?php echo Yii::app()->createUrl('login/logout') ?>">Logout</a>
 				</ul>
 				<ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect"
                     for="language-menu">
@@ -84,25 +69,14 @@
 		</header>
 		<div class="mdl-layout__drawer">
 			<span class="mdl-layout-title">Function Point</span>
-			<?php if (Yii::app()->session['lang'] == "ID"): ?>
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/project/index'); ?>">Project</a>
-					<?php if (isset(Yii::app()->session['workonproject'])): ?>
-					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/tdi/index'); ?>">Tambah Nilai TDI</a>
+			<nav class="mdl-navigation">
+				<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/project/index'); ?>">Project</a>
+				<?php if (isset(Yii::app()->session['workonproject'])): ?>
+					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/tdi/index'); ?>">Tambah TDI</a>
 					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/function/index/'); ?>">Tambah Function</a>
 					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/count/index/'); ?>">Hitung FP dan LOC</a>
-					<?php endif ?>
-				</nav>
-			<?php else: ?>
-				<nav class="mdl-navigation">
-					<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/project/index'); ?>">Project</a>
-					<?php if (isset(Yii::app()->session['workonproject'])): ?>
-						<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/tdi/index'); ?>">Input TDI</a>
-						<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/function/index/'); ?>">Add Function</a>
-						<a class="mdl-navigation__link" href="<?php echo Yii::app()->createUrl('fpa/count/index/'); ?>">Count FP and LOC</a>
-					<?php endif ?>
-				</nav>
-			<?php endif ?>
+				<?php endif ?>
+			</nav>
 		</div>
 		<main class="mdl-layout__content">
 			<div class="mdl-grid fpa-content">

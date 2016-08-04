@@ -6,6 +6,7 @@
  * The followings are the available columns in table 'fpa_gscpoint':
  * @property integer $id_point
  * @property string $point
+ * @property string $point_id
  * @property integer $id_gsc
  * @property integer $value
  *
@@ -32,9 +33,10 @@ class FpaGscpoint extends CActiveRecord
 		return array(
 			array('point, value', 'required'),
 			array('id_gsc, value', 'numerical', 'integerOnly'=>true),
+			array('point_id', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_point, point, id_gsc, value', 'safe', 'on'=>'search'),
+			array('id_point, point, point_id, id_gsc, value', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -58,6 +60,7 @@ class FpaGscpoint extends CActiveRecord
 		return array(
 			'id_point' => 'Id Point',
 			'point' => 'Point',
+			'point_id' => 'Point',
 			'id_gsc' => 'Id Gsc',
 			'value' => 'Value',
 		);
@@ -83,6 +86,7 @@ class FpaGscpoint extends CActiveRecord
 
 		$criteria->compare('id_point',$this->id_point);
 		$criteria->compare('point',$this->point,true);
+		$criteria->compare('point_id',$this->point_id,true);
 		$criteria->compare('id_gsc',$this->id_gsc);
 		$criteria->compare('value',$this->value);
 

@@ -14,13 +14,13 @@
 			'enableAjaxValidation'=>true,
 			)); ?>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+				<label class="fpa-label" for="nama">Project Name</label>
 				<input class="mdl-textfield__input" type="text" id="nama" name="FpaFpa[nama_fpa]" value="<?php echo $model->nama_fpa; ?>" >
-				<label class="mdl-textfield__label" for="nama">Project Name</label>
 				<?php echo $form->error($model, 'nama_fpa'); ?>
 			</div>
 			<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+				<label class="fpa-label" for="deskripsi">Project Description</label>
 				<textarea class="mdl-textfield__input" type="text" rows="2" id="deskripsi" name="FpaFpa[deskripsi]" ><?php echo $model->deskripsi; ?></textarea>
-				<label class="mdl-textfield__label" for="deskripsi">Project Description</label>
 				<?php echo $form->error($model, 'deskripsi'); ?>
 			</div>
 	</div>

@@ -10,7 +10,12 @@
 			}
 
 			$model = FpaUser::model()->findByAttributes(array('username'=>$this->name));
-			return $model->no_user;
+			if ($model == null) {
+				$model = FpaUser::model()->findByAttributes(array('email'=>$this->name));
+				return $model->no_user;
+			} else {
+				return $model->no_user;
+			}
 		}
 	}
 ?>

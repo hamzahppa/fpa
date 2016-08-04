@@ -27,6 +27,8 @@ class CountController extends Controller
 	public function actionIndex()
 	{
 		$id_fpa = $this->workOnProject();
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 		$modelFPA = FpaFpa::model()->findByPk($id_fpa);
 		$modelRiwayat = new FpaRiwayat;
 		// count TDI and TCA
@@ -91,9 +93,15 @@ class CountController extends Controller
 		$modelFPA->save();
 		// End Count UFP
 
-		$this->render('index', array(
-			'modelFPA'=>$modelFPA,
-		));
+		if ($lang == "ID") {
+			$this->render('index_id', array(
+				'modelFPA'=>$modelFPA,
+			));
+		} else {
+			$this->render('index', array(
+				'modelFPA'=>$modelFPA,
+			));
+		}
 	}
 
 	public function countTDI($id_fpa)
@@ -324,11 +332,31 @@ class CountController extends Controller
 	public function actionHistory()
 	{
 		$id_fpa = $this->workonproject();
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 		$modelRiwayat = FpaRiwayat::model()->findAllByAttributes(array('id_fpa'=>$id_fpa), array('order'=>'update_date DESC'));
 
-		$this->render('riwayat', array(
-			'modelRiwayat'=>$modelRiwayat,
-		));
+		if ($lang == "ID") {
+			$this->render('riwayat_id', array(
+				'modelRiwayat'=>$modelRiwayat,
+			));
+		} else {
+			$this->render('riwayat', array(
+				'modelRiwayat'=>$modelRiwayat,
+			));
+		}
+	}
+
+	public function checkLang()
+	{
+		if (!isset(Yii::app()->session['lang'])) {
+			return Yii::app()->session['lang'] = 'EN';
+		}
+	}
+
+	public function actionUnsetLang()
+	{
+		unset(Yii::app()->session['lang']);
 	}
 
 	public function workOnProject()
@@ -351,6 +379,15 @@ class CountController extends Controller
 		return $model;
 	}
 
+	public function getName(){
+		$modelUser = FpaUser::model()->findByAttributes(array('username'=>Yii::app()->user->name));
+		if ($modelUser === null) {
+			// $modelUser = FpaUser::model()->findByAttributes(array('email'=>Yii::app()->user->name));
+			return Yii::app()->user->name;
+		} else {
+			return $modelUser->email;
+		}
+	}
 }
 
 ?>

@@ -10,6 +10,32 @@
        url(http://localhost/mtrf/MaterialIcons-Regular.ttf) format('truetype');
 }
 
+body {
+  font-size: 16px;
+}
+
+.mdl-card__supporting-text {
+  font-size: 16px;
+  line-height: 20px;
+}
+
+.mdl-navigation__link {
+  font-size: 16px;
+}
+
+.mdl-list__item--three-line .mdl-list__item-text-body {
+  font-size: 15px;
+  font-weight: bold;
+}
+
+.mdl-textfield{
+  font-size: 18px;
+}
+
+.mdl-button{
+  font-size: 16px;
+}
+
 .material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
@@ -45,7 +71,7 @@ html, body {
   display: inline;
 }
 .fpa-list-three {
-  width: 650px;
+  width: 100%;
   padding: 0;
   margin: 0;
 }
@@ -62,4 +88,7 @@ html, body {
 .fpa-supporting-text{
   width: 100%;
   padding-bottom: 0;
+}
+.fpa-label{
+  color: rgb(63,81,181);
 }

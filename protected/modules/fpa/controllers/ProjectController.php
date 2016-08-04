@@ -2,7 +2,7 @@
 
 class ProjectController extends Controller
 {
-	public $layout = 'main';
+	public $layout = "main";
 
 	public function filters()
 	{
@@ -17,7 +17,7 @@ class ProjectController extends Controller
 		$user = Yii::app()->user->no_user;
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','tambah','detail','edit','select', 'done', 'editTdi'),
+				'actions'=>array('index','tambah','detail','edit','select', 'done', 'editTdi', 'lang', 'unsetLang'),
 				'expression'=>"$user !== null",
 			),
 			array('deny',  // deny all users
@@ -35,6 +35,15 @@ class ProjectController extends Controller
 	public function actionIndex()
 	{
 		$user = Yii::app()->user->no_user;
+
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
+
+		// if (!isset(Yii::app()->session['lang'])) {
+		// 	Yii::app()->session['lang'] = 'EN';
+		// }
+		// $lang = Yii::app()->session['lang'];
+
 		if ($this->workOnProject()) {
 			$id_fpa = $this->workOnProject();
 
@@ -45,15 +54,37 @@ class ProjectController extends Controller
 		}
 
 		$modelFPA = FpaFpa::model()->findAllByAttributes(array('no_user'=>$user), array('order'=>'id_fpa DESC'));
-		 
-		$this->render('index', array(
-			'modelFPA'=>$modelFPA,
-		));
+		
+		// if ($lang == "EN") {
+		// 	$this->render('index', array(
+		// 		'modelFPA'=>$modelFPA,
+		// 	));
+		// }elseif ($lang == "ID") {
+		// 	$this->render('index_id', array(
+		// 		'modelFPA'=>$modelFPA,
+		// 	));		
+		// }else{
+		// 	$this->render('index', array(
+		// 		'modelFPA'=>$modelFPA,
+		// 	));
+		// }
+		if ($lang == "ID") {
+			$this->render('index_id', array(
+				'modelFPA'=>$modelFPA,
+			));
+		}else{
+			$this->render('index', array(
+				'modelFPA'=>$modelFPA,
+			));
+		}
 	}
 
 	public function actionTambah()
 	{
 		$user = Yii::app()->user->no_user;
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
+		
 		$model = new FpaFpa;
 
 		$this->performAjaxValidation($model);
@@ -68,13 +99,22 @@ class ProjectController extends Controller
 			}
 		}
 
-		$this->render('tambah', array(
-			'model'=>$model,
-		));
+		if ($lang == "ID") {
+			$this->render('tambah_id', array(
+				'model'=>$model,
+			));
+		}else{
+			$this->render('tambah', array(
+				'model'=>$model,
+			));
+		}
 	}
 
 	public function actionDetail($id)
 	{
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
+		
 		$modelTable = FpaFp::model()->findAllByAttributes(array(
 			'id_fpa'=>$id,
 			'tipe'=>'ILF'
@@ -85,15 +125,25 @@ class ProjectController extends Controller
 			'tipe'=>array('EI','EO','EQ','EIF'),
 		));
 
-		$this->render('detail', array(
-			'model'=>$this->loadModel($id),
-			'modelTable'=>$modelTable,
-			'modelFunction'=>$modelFunction,			
-		));
+		if ($lang == "ID") {
+			$this->render('detail_id', array(
+				'model'=>$this->loadModel($id),
+				'modelTable'=>$modelTable,
+				'modelFunction'=>$modelFunction,			
+			));
+		}else{
+			$this->render('detail', array(
+				'model'=>$this->loadModel($id),
+				'modelTable'=>$modelTable,
+				'modelFunction'=>$modelFunction,			
+			));
+		}
 	}
 
 	public function actionEdit($id)
 	{
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 		// $this->setProject($id);
 		$model = FpaFpa::model()->findByPk($id);
 
@@ -109,9 +159,15 @@ class ProjectController extends Controller
 			}
 		}
 
-		$this->render('edit', array(
-			'model'=>$model,
-		));
+		if ($lang == "ID") {
+			$this->render('edit_id', array(
+				'model'=>$model,
+			));
+		}else{
+			$this->render('edit', array(
+				'model'=>$model,
+			));
+		}
 	}
 
 	public function actionSelect($id)
@@ -169,6 +225,24 @@ class ProjectController extends Controller
 		return Yii::app()->session['workonproject'];
 	}
 
+	public function actionLang($lang)
+	{
+		Yii::app()->session['lang'] = $lang;
+		$this->redirect(Yii::app()->homeUrl);
+	}
+
+	public function checkLang()
+	{
+		if (!isset(Yii::app()->session['lang'])) {
+			return Yii::app()->session['lang'] = 'EN';
+		}
+	}
+
+	public function actionUnsetLang()
+	{
+		unset(Yii::app()->session['lang']);
+	}
+
 	public function loadModel($id)
 	{
 		$model = FpaFpa::model()->findByPk($id);
@@ -176,6 +250,16 @@ class ProjectController extends Controller
 			throw new CHttpException(404, "Error, the requested page does not exist.");
 		}
 		return $model;
+	}
+
+	public function getName(){
+		$modelUser = FpaUser::model()->findByAttributes(array('username'=>Yii::app()->user->name));
+		if ($modelUser === null) {
+			// $modelUser = FpaUser::model()->findByAttributes(array('email'=>Yii::app()->user->name));
+			return Yii::app()->user->name;
+		} else {
+			return $modelUser->email;
+		}
 	}
 
 	protected function performAjaxValidation($model)

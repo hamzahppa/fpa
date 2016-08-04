@@ -19,6 +19,10 @@ class LoginController extends Controller
 
 	public function actionIndex()
 	{
+		if (!isset(Yii::app()->session['lang'])) {
+			Yii::app()->session['lang'] = 'EN';
+		}
+		
 		if (Yii::app()->user->isGuest) {
 			$model = new LoginForm;
 
@@ -36,7 +40,7 @@ class LoginController extends Controller
 					// berhasil login
 					$this->redirect(Yii::app()->createUrl('fpa/project'));
 				}
-				echo "gagal";
+				// echo "gagal";
 			}
 
 			$this->render('index', array('model'=>$model));
@@ -56,7 +60,7 @@ class LoginController extends Controller
 	{
 		$model = new FpaUser;
 
-		$username = "user".rand(100, 999).date('dH');
+		$username = "user".rand(100, 999).date('YmdH');
 		
 		$this->performAjaxValidation($model);
 
@@ -71,13 +75,14 @@ class LoginController extends Controller
 					'message' => 'Anda telah terdaftar dengan username dan Password berikut :',
 					'username' => $model->username,
 					'password' => $model->password,
+					'email' => $model->email,
 					'name' => 'Admin Function Point Analysis', 
 					'description' => 'Pengingat Username dan Password'
 				));
 				//set properties
 				$mail->setFrom('tmenulis@gmail.com', 'Admin');
 				$mail->setSubject('Pendaftaran Berhasil, Pengingat Username and Password');
-				$mail->setTo('hamzahibnabdullah@gmail.com');
+				$mail->setTo($model->email);
 				// $mail->SMTPDebug  = 1;
 				//send
 				if ($mail->send()) {

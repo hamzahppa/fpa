@@ -11,13 +11,13 @@
 			'validateOnSubmit'=>true,
 		),
 	)); ?>
-	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-		<?php echo $form->labelEx($model,'Username', array('class'=>'mdl-textfield__label')); ?>
+	<div class="mdl-textfield mdl-js-textfield dl-cell mdl-cell--12-col">
+		<?php echo $form->labelEx($model,'Email/Username', array('class'=>'fpa-label')); ?>
 		<?php echo $form->textField($model,'username', array('class'=>'mdl-textfield__input')); ?>
 		<?php echo $form->error($model,'username'); ?>
 	</div>
-	<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label mdl-cell mdl-cell--12-col">
-		<?php echo $form->labelEx($model,'Password', array('class'=>'mdl-textfield__label')); ?>
+	<div class="mdl-textfield mdl-js-textfield mdl-cell mdl-cell--12-col">
+		<?php echo $form->labelEx($model,'Password', array('class'=>'fpa-label')); ?>
 		<?php echo $form->passwordField($model,'password', array('class'=>'mdl-textfield__input')); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>

@@ -65,6 +65,9 @@ class TdiController extends Controller
 	public function actionAddTdi($id_gsc, $stat = "noedit")
 	{
 		$id_fpa = $this->workonproject();
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
+
 		$modelGsc = FpaGsc::model()->findByPk($id_gsc);
 
 		// check if this gsc already set
@@ -80,11 +83,19 @@ class TdiController extends Controller
 				$this->saveTdi($modelTdi);
 			}
 
-			$this->render('updateTdi', array(
-				'modelTdi'=>$modelTdi,
-				'modelGsc'=>$modelGsc,
-				'stat'=>$stat,
-			));
+			if ($lang == "ID") {
+				$this->render('updateTdi_id', array(
+					'modelTdi'=>$modelTdi,
+					'modelGsc'=>$modelGsc,
+					'stat'=>$stat,
+				));
+			} else {
+				$this->render('updateTdi', array(
+					'modelTdi'=>$modelTdi,
+					'modelGsc'=>$modelGsc,
+					'stat'=>$stat,
+				));
+			}
 		} else {
 		// if no
 			$modelTdi = new FpaTdi;
@@ -96,10 +107,17 @@ class TdiController extends Controller
 				$this->saveTdi($modelTdi);
 			}
 
-			$this->render('addTdi', array(
-				'modelTdi'=>$modelTdi,
-				'modelGsc'=>$modelGsc,
-			));
+			if ($lang == "ID") {
+				$this->render('addTdi_id', array(
+					'modelTdi'=>$modelTdi,
+					'modelGsc'=>$modelGsc,
+				));
+			} else {
+				$this->render('addTdi', array(
+					'modelTdi'=>$modelTdi,
+					'modelGsc'=>$modelGsc,
+				));
+			}
 		}
 	}
 
@@ -121,15 +139,23 @@ class TdiController extends Controller
 	public function actionOverview()
 	{
 		$id_fpa = $this->workOnProject();
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 		$modelTdi = FpaTdi::model()->findAllByAttributes(array('id_fpa'=>$id_fpa), array('order'=>'id_gsc ASC'));
 
 		if ($modelTdi == null) {
 			throw new CHttpException(404, "Error, the requested page does not exist.");
 		}
 
-		$this->render('overview', array(
-			'modelTdi'=>$modelTdi,
-		));
+		if ($lang == "ID") {
+			$this->render('overview_id', array(
+				'modelTdi'=>$modelTdi,
+			));
+		} else {
+			$this->render('overview', array(
+				'modelTdi'=>$modelTdi,
+			));
+		}
 	}
 
 	public function workOnProject()
@@ -154,6 +180,18 @@ class TdiController extends Controller
 		return $GscPoint;
 	}
 
+	public function checkLang()
+	{
+		if (!isset(Yii::app()->session['lang'])) {
+			return Yii::app()->session['lang'] = 'EN';
+		}
+	}
+
+	public function actionUnsetLang()
+	{
+		unset(Yii::app()->session['lang']);
+	}
+
 	public function loadModel($id)
 	{
 		$model = FpaTdi::model()->findByPk($id);
@@ -161,6 +199,16 @@ class TdiController extends Controller
 			throw new CHttpException(404, "Error, the requested page does not exist.");
 		}
 		return $model;
+	}
+
+	public function getName(){
+		$modelUser = FpaUser::model()->findByAttributes(array('username'=>Yii::app()->user->name));
+		if ($modelUser === null) {
+			// $modelUser = FpaUser::model()->findByAttributes(array('email'=>Yii::app()->user->name));
+			return Yii::app()->user->name;
+		} else {
+			return $modelUser->email;
+		}
 	}
 
 	protected function performAjaxValidation($model)

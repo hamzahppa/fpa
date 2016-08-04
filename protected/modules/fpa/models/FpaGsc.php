@@ -7,6 +7,8 @@
  * @property integer $id_gsc
  * @property string $gsc
  * @property string $deskripsi
+ * @property string $deskripsi_id
+ * @property string $gsc_id
  *
  * The followings are the available model relations:
  * @property FpaGscpoint[] $fpaGscpoints
@@ -30,10 +32,10 @@ class FpaGsc extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('gsc, deskripsi', 'safe'),
+			array('gsc, deskripsi, deskripsi_id, gsc_id', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_gsc, gsc, deskripsi', 'safe', 'on'=>'search'),
+			array('id_gsc, gsc, deskripsi, deskripsi_id, gsc_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +61,8 @@ class FpaGsc extends CActiveRecord
 			'id_gsc' => 'Id Gsc',
 			'gsc' => 'Gsc',
 			'deskripsi' => 'Deskripsi',
+			'deskripsi_id' => 'Deskripsi',
+			'gsc_id' => 'Gsc',
 		);
 	}
 
@@ -83,6 +87,8 @@ class FpaGsc extends CActiveRecord
 		$criteria->compare('id_gsc',$this->id_gsc);
 		$criteria->compare('gsc',$this->gsc,true);
 		$criteria->compare('deskripsi',$this->deskripsi,true);
+		$criteria->compare('deskripsi_id',$this->deskripsi_id,true);
+		$criteria->compare('gsc_id',$this->gsc_id,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

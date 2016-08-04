@@ -35,6 +35,9 @@ class FunctionController extends Controller
 	public function actionIndex()
 	{
 		$id = $this->workOnProject();
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
+
 		$modelTable = FpaFp::model()->findAllByAttributes(array(
 			'id_fpa'=>$id,
 			'tipe'=>'ILF'
@@ -45,16 +48,25 @@ class FunctionController extends Controller
 			'tipe'=>array('EI','EO','EQ','EIF'),
 		));
 
-		$this->render('index', array(
-			'modelTable'=>$modelTable,
-			'modelFunction'=>$modelFunction,
-		));
+		if ($lang == "ID") {
+			$this->render('index_id', array(
+				'modelTable'=>$modelTable,
+				'modelFunction'=>$modelFunction,
+			));
+		} else {
+			$this->render('index', array(
+				'modelTable'=>$modelTable,
+				'modelFunction'=>$modelFunction,
+			));
+		}
 	}
 
 	public function actionAddFunction()
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFp = new FpaFp;
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 
 		$this->performAjaxValidation($modelFp);
 		if (isset($_POST['FpaFp'])) 
@@ -98,16 +110,23 @@ class FunctionController extends Controller
 			}
 		}
 
-
-		$this->render('addFunction', array(
-			'modelFp'=>$modelFp,
-		));
+		if ($lang == "ID") {
+			$this->render('addFunction_id', array(
+				'modelFp'=>$modelFp,
+			));
+		} else {
+			$this->render('addFunction', array(
+				'modelFp'=>$modelFp,
+			));
+		}
 	}
 
 	public function actionEditFunction($id_fp)
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFp = FpaFp::model()->findByPk($id_fp);
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 
 		$this->performAjaxValidation($modelFp);
 		if (isset($_POST['FpaFp'])) 
@@ -134,14 +153,26 @@ class FunctionController extends Controller
 		}
 
 		if ($modelFp->tipe == "ILF" || $modelFp->tipe == "EIF") {
-			$this->render('editTable', array(
-				'modelFp'=>$modelFp,
-			));	
+			if ($lang == "ID") {
+				$this->render('editTable_id', array(
+					'modelFp'=>$modelFp,
+				));
+			} else {
+				$this->render('editTable', array(
+					'modelFp'=>$modelFp,
+				));
+			}
 		}
 		if ($modelFp->tipe == "EI" || $modelFp->tipe == "EO" || $modelFp->tipe == "EQ") {
-			$this->render('editFunction', array(
-				'modelFp'=>$modelFp,
-			));	
+			if ($lang == "ID") {
+				$this->render('editFunction_id', array(
+					'modelFp'=>$modelFp,
+				));	
+			} else {
+				$this->render('editFunction', array(
+					'modelFp'=>$modelFp,
+				));	
+			}
 		}
 	}
 
@@ -149,6 +180,8 @@ class FunctionController extends Controller
 	{
 		$id_fpa = $this->workOnProject();
 		$modelFp = new FpaFp;
+		$this->checkLang();
+		$lang = Yii::app()->session['lang'];
 
 		$this->performAjaxValidation($modelFp);
 		if (isset($_POST['FpaFp'])) 
@@ -193,9 +226,15 @@ class FunctionController extends Controller
 			}
 		}
 
-		$this->render('addTable', array(
-			'modelFp'=>$modelFp,
-		));
+		if ($lang == "ID") {
+			$this->render('addTable_id', array(
+				'modelFp'=>$modelFp,
+			));
+		} else {
+			$this->render('addTable', array(
+				'modelFp'=>$modelFp,
+			));
+		}
 	}
 
 	public function workOnProject()
@@ -207,6 +246,18 @@ class FunctionController extends Controller
 		return Yii::app()->session['workonproject'];
 	}
 
+	public function checkLang()
+	{
+		if (!isset(Yii::app()->session['lang'])) {
+			return Yii::app()->session['lang'] = 'EN';
+		}
+	}
+
+	public function actionUnsetLang()
+	{
+		unset(Yii::app()->session['lang']);
+	}
+
 	public function loadModel($id)
 	{
 		$model = FpaFp::model()->findByPk($id);
@@ -214,6 +265,16 @@ class FunctionController extends Controller
 			throw new CHttpException(404, "Error, the requested page does not exist.");
 		}
 		return $model;
+	}
+
+	public function getName(){
+		$modelUser = FpaUser::model()->findByAttributes(array('username'=>Yii::app()->user->name));
+		if ($modelUser === null) {
+			// $modelUser = FpaUser::model()->findByAttributes(array('email'=>Yii::app()->user->name));
+			return Yii::app()->user->name;
+		} else {
+			return $modelUser->email;
+		}
 	}
 
 	protected function performAjaxValidation($model)

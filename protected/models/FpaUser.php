@@ -7,6 +7,7 @@
  * @property string $username
  * @property string $password
  * @property integer $no_user
+ * @property string $email
  *
  * The followings are the available model relations:
  * @property FpaFpa[] $fpaFpas
@@ -29,12 +30,13 @@ class FpaUser extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('no_user, username', 'unique'),
-			array('username, password', 'required'),
+			array('no_user, username, email', 'unique'),
+			array('username, password, email', 'required'),
 			array('username, password', 'length', 'max'=>255),
+			array('email', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('username, password, no_user', 'safe', 'on'=>'search'),
+			array('username, password, no_user, email', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -59,6 +61,7 @@ class FpaUser extends CActiveRecord
 			'username' => 'Username',
 			'password' => 'Password',
 			'no_user' => 'No User',
+			'email' => 'Email',
 		);
 	}
 
@@ -83,6 +86,7 @@ class FpaUser extends CActiveRecord
 		$criteria->compare('username',$this->username,true);
 		$criteria->compare('password',$this->password,true);
 		$criteria->compare('no_user',$this->no_user);
+		$criteria->compare('email',$this->email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

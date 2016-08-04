@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Website yang dibangun untuk menghitung perkiraan ukuran software">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" href="<?php echo Yii::app()->request->baseUrl; ?>/assets/themes/img/favicon.ico" type="image/x-icon" />
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 
     <!-- Add to homescreen for Chrome on Android -->

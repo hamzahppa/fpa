@@ -7,6 +7,8 @@
  * @property integer $id_riwayat
  * @property double $loc
  * @property double $fp
+ * @property double $ufp
+ * @property double $tca
  * @property string $update_date
  * @property integer $id_fpa
  *
@@ -31,12 +33,12 @@ class FpaRiwayat extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('loc, fp, update_date, id_fpa', 'required'),
+			array('update_date, id_fpa', 'required'),
 			array('id_fpa', 'numerical', 'integerOnly'=>true),
-			array('loc, fp', 'numerical'),
+			array('loc, fp, ufp, tca', 'numerical'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id_riwayat, loc, fp, update_date, id_fpa', 'safe', 'on'=>'search'),
+			array('id_riwayat, loc, fp, ufp, tca, update_date, id_fpa', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -61,6 +63,8 @@ class FpaRiwayat extends CActiveRecord
 			'id_riwayat' => 'Id Riwayat',
 			'loc' => 'Loc',
 			'fp' => 'Fp',
+			'ufp' => 'Ufp',
+			'tca' => 'Tca',
 			'update_date' => 'Update Date',
 			'id_fpa' => 'Id Fpa',
 		);
@@ -87,6 +91,8 @@ class FpaRiwayat extends CActiveRecord
 		$criteria->compare('id_riwayat',$this->id_riwayat);
 		$criteria->compare('loc',$this->loc);
 		$criteria->compare('fp',$this->fp);
+		$criteria->compare('ufp',$this->ufp);
+		$criteria->compare('tca',$this->tca);
 		$criteria->compare('update_date',$this->update_date,true);
 		$criteria->compare('id_fpa',$this->id_fpa);
 

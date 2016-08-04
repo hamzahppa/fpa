@@ -18,14 +18,24 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$users= FpaUser::model()->findByAttributes(array('username'=>$this->username));
+		$email= FpaUser::model()->findByAttributes(array('email'=>$this->username));
 
-		if ($users === null) {
+		if ($users === null && $email === null) {
 			$this->errorCode=self::ERROR_USERNAME_INVALID;
 		}else{
-			if ($users->password === $this->password) 
-			{
-				$this->errorCode=self::ERROR_NONE;
-			}else{
+			if ($users !== null) {
+				if ($users->password === $this->password) {
+					$this->errorCode=self::ERROR_NONE;
+				} else {
+					$this->errorCode=self::ERROR_PASSWORD_INVALID;
+				}
+			} else if ($email != null) {
+				if ($email->password === $this->password) {
+					$this->errorCode=self::ERROR_NONE;
+				} else {
+					$this->errorCode=self::ERROR_PASSWORD_INVALID;
+				}
+			} else {
 				$this->errorCode=self::ERROR_PASSWORD_INVALID;
 			}
 		}

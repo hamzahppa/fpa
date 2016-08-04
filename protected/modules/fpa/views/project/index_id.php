@@ -1,13 +1,13 @@
 <?php  ?>
 <div class="mdl-card mdl-shadow--2dp mdl-cell mdl-cell--12-col mdl-grid">
 	<div class="mdl-card__title">
-		<h2 class="mdl-card__title-text">Current Project</h2>
+		<h2 class="mdl-card__title-text">Project yang telah ditambahkan</h2>
 	</div>
 	<div class="mdl-card__supporting-text">
 		<?php if ($modelFPA == null): ?>
-			No project found, you can add by clicking <b>Add Project</b> button below
+			Belum ada <i>project</i>, tambahkan melalui tombol <b>Tambah Project</b> dibawah
 		<?php else: ?>
-		    There are the project you were working for. Choose edit icon to review and edit your work. Choose Add Project if you want to create one.
+			Daftar <i>project</i> yang telah ditambahkan. Pilih ikon <i>edit</i> untuk mengubah data project. Pilih tombol <b>Tambah Project</b> untuk menambahkan baru.
 		    <ul class="mdl-list">
 		    <?php for ($i=0; $i < count($modelFPA); $i++) : ?>
 		    	<li class="mdl-list__item mdl-list__item--two-line">
@@ -16,7 +16,7 @@
 		    			<span><?php echo $modelFPA[$i]->nama_fpa; ?></span>
 		    			<span class="mdl-list__item-sub-title">
 		    				<?php if ($modelFPA[$i]->loc == 0 || $modelFPA[$i]->loc == null): ?>
-		    					<p style="color: red;">Unfinished</p>
+		    					<p style="color: red">Data belum lengkap</p>
 		    				<?php else: ?>
 				    			<?php echo round($modelFPA[$i]->loc, 1); ?> LOC
 		    				<?php endif ?>
@@ -32,7 +32,7 @@
 	</div>
 	<div class="mdl-card__actions mdl-card--border">
 		<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect" href="<?php echo Yii::app()->createUrl('fpa/project/tambah'); ?>">
-			Add Project
+			Tambah Project
 		</a>
 	</div>
 </div>
